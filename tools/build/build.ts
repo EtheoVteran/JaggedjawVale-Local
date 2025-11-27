@@ -113,8 +113,6 @@ export const DmTarget = new Juke.Target({
     "tgui/public/tgui.html",
     "modular/**",
     "modular_azurepeak/**",
-    "modular_hearthstone/**",
-    "modular_causticcove/**",
     `${DME_NAME}.dme`,
     NamedVersionFile,
   ],
