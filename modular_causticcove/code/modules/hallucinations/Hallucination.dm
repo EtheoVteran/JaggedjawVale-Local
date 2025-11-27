@@ -23,7 +23,7 @@
 		if("volf")
 			image = image('icons/roguetown/mob/monster/vol.dmi',src,"vv",OBJ_LAYER+0.01, dir)
 		if("skele")
-			image = image('modular_hearthstone/icons/mob/skeletons.dmi',src,"skeleton",OBJ_LAYER+0.01, dir)
+			image = image('/icons/mob/skeletons.dmi',src,"skeleton",OBJ_LAYER+0.01, dir)
 		if("goblin")
 			image = image('icons/roguetown/mob/monster/goblins.dmi',src,"goblin",OBJ_LAYER+0.01, dir)
 		if("coon")
@@ -37,7 +37,7 @@
 		if("???")
 			image = image('icons/roguetown/mob/monster/horrors.dmi',src,"horror[rand(1,5)]",OBJ_LAYER+0.01, dir)
 		if(null) //In case we didn't get one somehow when initializing...
-			image = image('modular_hearthstone/icons/mob/abyssal_medium.dmi',src,"dreamfiend",OBJ_LAYER+0.01, dir)
+			image = image('icons/mob/abyssal_medium.dmi',src,"dreamfiend",OBJ_LAYER+0.01, dir)
 	if(!image) //We hadn't loaded our image yet...
 		return
 	if(target.client) //Load our new image and dir.
