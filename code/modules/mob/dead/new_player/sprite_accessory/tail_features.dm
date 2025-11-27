@@ -70,6 +70,7 @@
 	name = "Stripe"
 	icon_state = "stripe"
 
+<<<<<<< HEAD
 //Taur markings
 /datum/sprite_accessory/tail_feature/taur
 	relevant_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
@@ -78,6 +79,8 @@
     generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_TAUR, OFFSET_TAUR_F)
 
 
+=======
+>>>>>>> 17658f961 (demodularize caustic cove tails.)
 /datum/sprite_accessory/tail_feature/large_snake
 	icon = 'icons/mob/tails/large_snake_markings.dmi'
 	relevant_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
