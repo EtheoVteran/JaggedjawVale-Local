@@ -93,7 +93,7 @@
 /datum/supply_pack/rogue/steel_weapons/picksteel
 	name = "Steel Pick"
 	cost = 45 // 1 Steel Ingot + Stick
-	contains= list(
+	contains = list(
 					/obj/item/rogueweapon/pick/steel,
 				)
 //Caustic Edit End
