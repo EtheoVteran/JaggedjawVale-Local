@@ -314,7 +314,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 				return FALSE
 
 	else
-		if(clothes_req || human_req || animagus_incompatible)
+		if(clothes_req || human_req || animagus_incompatible) // CC Edit
 			to_chat(user, span_warning("This spell can only be cast by humans!"))
 			return FALSE
 		if(nonabstract_req && (isbrain(user)))
@@ -677,7 +677,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	action.UpdateButtonIcon(status_only, force)
 
 /obj/effect/proc_holder/spell/proc/can_be_cast_by(mob/caster)
-	if((human_req || clothes_req || animagus_incompatible) && !ishuman(caster)) // CC Edit
+	if((human_req || clothes_req || animagus_incompatible) && !ishuman(caster) || !isanimagus(caster)) // CC Edit
 		return 0
 	return 1
 
