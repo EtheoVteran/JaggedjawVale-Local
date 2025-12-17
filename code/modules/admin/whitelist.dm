@@ -1,7 +1,7 @@
 #ifdef TESTSERVER
-	#define WHITELISTFILE	"[global.config.directory]whitelist.txt"
+	#define WHITELISTFILE	"[global.config.directory]/whitelist.txt"
 #else
-	#define WHITELISTFILE	"[global.GameStaticFiles.config]whitelist.txt"
+	#define WHITELISTFILE	"[global.config.directory]/whitelist.txt"
 #endif
 
 GLOBAL_LIST_EMPTY(whitelist)
