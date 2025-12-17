@@ -81,7 +81,7 @@
 
 /datum/customizer/organ/wings/dracon
 	customizer_choices = list(/datum/customizer_choice/organ/wings/dracon)
-	allows_disabling = TRUE
+	allows_disabling = FALSE
 	default_disabled = FALSE
 
 /datum/customizer_choice/organ/wings/dracon

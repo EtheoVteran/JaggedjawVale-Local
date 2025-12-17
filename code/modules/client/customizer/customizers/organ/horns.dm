@@ -60,14 +60,7 @@
 		/datum/sprite_accessory/horns/sheephorns,
 		/datum/sprite_accessory/horns/doublehorns,
 		/datum/sprite_accessory/horns/tiefling,
-		/datum/sprite_accessory/horns/tieflingalt,
-		//CC Start
-		/datum/sprite_accessory/horns/large/caustic/antlers,
-		/datum/sprite_accessory/horns/large/caustic/antlers/large,
-		/datum/sprite_accessory/horns/large/caustic/antlers/regal,
-		/datum/sprite_accessory/horns/large/caustic/antlers/monarch,
-		/datum/sprite_accessory/horns/large/caustic/antlers/short
-		//CC End
+		/datum/sprite_accessory/horns/tieflingalt
 		)
 
 /datum/customizer/organ/horns/demihuman
@@ -118,14 +111,7 @@
 		/datum/sprite_accessory/horns/sheephorns,
 		/datum/sprite_accessory/horns/doublehorns,
 		/datum/sprite_accessory/horns/tiefling,
-		/datum/sprite_accessory/horns/tieflingalt,
-		//CC Start
-		/datum/sprite_accessory/horns/large/caustic/antlers,
-		/datum/sprite_accessory/horns/large/caustic/antlers/large,
-		/datum/sprite_accessory/horns/large/caustic/antlers/regal,
-		/datum/sprite_accessory/horns/large/caustic/antlers/monarch,
-		/datum/sprite_accessory/horns/large/caustic/antlers/short
-		//CC End
+		/datum/sprite_accessory/horns/tieflingalt
 		)
 
 /datum/customizer/organ/horns/anthro
@@ -176,14 +162,7 @@
 		/datum/sprite_accessory/horns/sheephorns,
 		/datum/sprite_accessory/horns/doublehorns,
 		/datum/sprite_accessory/horns/tiefling,
-		/datum/sprite_accessory/horns/tieflingalt,
-		//CC Start
-		/datum/sprite_accessory/horns/large/caustic/antlers,
-		/datum/sprite_accessory/horns/large/caustic/antlers/large,
-		/datum/sprite_accessory/horns/large/caustic/antlers/regal,
-		/datum/sprite_accessory/horns/large/caustic/antlers/monarch,
-		/datum/sprite_accessory/horns/large/caustic/antlers/short
-		//CC End
+		/datum/sprite_accessory/horns/tieflingalt
 		)
 
 /datum/customizer/organ/horns/tusks

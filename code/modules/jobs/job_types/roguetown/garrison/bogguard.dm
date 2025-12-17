@@ -20,7 +20,7 @@
 	advclass_cat_rolls = list(CTAG_WARDEN = 20)
 
 	give_bank_account = TRUE
-	min_pq = null //0
+	min_pq = 0
 	max_pq = null
 	round_contrib_points = 2
 
@@ -28,10 +28,7 @@
 	job_traits = list(TRAIT_OUTDOORSMAN, TRAIT_WOODSMAN, TRAIT_SURVIVAL_EXPERT)
 	job_subclasses = list(
 		/datum/advclass/bogguardsman/ranger,
-		/datum/advclass/bogguardsman/forester,
-		///Caustic edit
-		/datum/advclass/bogguardsman/wildsoul
-		///Caustic edit end
+		/datum/advclass/bogguardsman/forester
 	)
 
 /datum/outfit/job/roguetown/bogguardsman
@@ -116,7 +113,7 @@
 			"None"
 		)
 		var/hoodchoice = input(H, "Choose your Shroud.", "HOOD SELECTION") as anything in hoods
-		if(helmchoice != "None")
+		if(hoodchoice != "None")
 			mask = hoods[hoodchoice]
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_LOWER_MIDDLE_CLASS, H, "Savings.")

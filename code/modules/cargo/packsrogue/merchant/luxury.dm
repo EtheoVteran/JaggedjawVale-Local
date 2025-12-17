@@ -137,9 +137,3 @@
 	name = "Paint palette"
 	cost = 15
 	contains = list(/obj/item/paint_palette)
-
-//Caustic edit start
-/datum/supply_pack/rogue/luxury/sizescroll
-	name = "Scroll of Reduce/Enlarge"
-	cost = 15
-	contains = list(/obj/item/book/granter/spell/blackstone/sizespell)

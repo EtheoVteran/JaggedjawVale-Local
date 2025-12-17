@@ -49,8 +49,6 @@
 			tag = tag + "_4"
 		if(breasts.breast_size == 5)
 			tag = tag + "_5"
-		if(breasts.breast_size > 5) //caustic edit
-			tag = tag + "_5"
 		return tag
 	else
 		return "bikini_f_0"
@@ -82,8 +80,6 @@
 			tag = tag + "_4"
 		if(breasts.breast_size == 5)
 			tag = tag + "_5"
-		if(breasts.breast_size > 5) //caustic edit
-			tag = tag + "_5"
 		return tag
 	else
 		return "male_leotard"
@@ -111,7 +107,7 @@
 
 /datum/sprite_accessory/legwear
 	abstract_type = /datum/sprite_accessory/legwear
-	icon = 'modular_hearthstone/icons/obj/items/clothes/on_mob/stockings.dmi'
+	icon = 'icons/obj/items/clothes/on_mob/stockings.dmi'
 	color_key_name = "Legwear"
 	layer = LEGWEAR_LAYER
 	var/legwear_type

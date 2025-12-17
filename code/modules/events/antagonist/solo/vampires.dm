@@ -9,7 +9,7 @@
 	antag_flag = ROLE_NBEAST
 	shared_occurence_type = SHARED_HIGH_THREAT
 
-	weight = 0 // CC edit: Disabled. Was 4
+	weight = 4
 	max_occurrences = 1
 
 	denominator = 80

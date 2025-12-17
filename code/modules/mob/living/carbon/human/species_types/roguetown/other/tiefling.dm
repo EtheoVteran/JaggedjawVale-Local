@@ -71,19 +71,12 @@
 		/datum/customizer/bodypart_feature/underwear,
 		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/horns/anthro,
-		//Caustic edit
-		// /datum/customizer/organ/tail/tiefling,
-		/datum/customizer/organ/tail/demihuman,
-		//Caustic edit end
+		/datum/customizer/organ/tail/tiefling,
 		/datum/customizer/organ/testicles/anthro,
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/human,
 		/datum/customizer/organ/vagina/human_anthro,
 		/datum/customizer/organ/ears/tiefling,
-		//Caustic edit
-		/datum/customizer/organ/belly/human,
-		/datum/customizer/organ/butt/human,
-		//Caustic edit end
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,
@@ -137,13 +130,7 @@
 		"Voibion" = SKIN_COLOR_VOIBION,
 		"Chyerno" = SKIN_COLOR_CHYERNO,
 		"Drema"	= SKIN_COLOR_DREMA,
-		"Chir"	= SKIN_COLOR_CHIR,
-		//Caustic edit
-		"Seeker" = SKIN_COLOR_SEEKER,
-		"Splendorous" = SKIN_COLOR_SPLENDOROUS,
-		"Witness"	= SKIN_COLOR_WITNESS,
-		"Blessed"	= SKIN_COLOR_BLESSED
-		//Caustic edit end
+		"Chir"	= SKIN_COLOR_CHIR
 	)
 
 /datum/species/tieberian/get_hairc_list()

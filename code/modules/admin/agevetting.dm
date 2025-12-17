@@ -7,23 +7,16 @@ GLOBAL_LIST_INIT(agevetted_list, load_agevets_from_file())
 GLOBAL_PROTECT(agevetted_list)
 
 /client/proc/check_agevet()
-	///Caustic edit
-	/*if(LAZYACCESS(GLOB.agevetted_list, ckey) || holder)
+	if(LAZYACCESS(GLOB.agevetted_list, ckey) || holder)
 		return TRUE
-	return FALSE*/
-	///Caustic edit end
-	return TRUE
+	return FALSE
 
 /mob/proc/check_agevet()
-	///Caustic edit
-	/*if(client)
+	if(client)
 		return client.check_agevet()
 	if(LAZYACCESS(GLOB.agevetted_list, ckey) || copytext(key,1,2)=="@") //aghosted people stay verified
 		return TRUE
-	return FALSE*/
-	///Caustic edit end
-	return TRUE
-	
+	return FALSE
 
 /client/proc/agevet_player()
 	set category = "-Server-"
@@ -54,6 +47,8 @@ GLOBAL_PROTECT(agevetted_list)
 	log_admin("ID VETTING: Added [target_ckey] to the agevetted list[admin_ckey? " by [admin_ckey]":""]")
 	save_agevets_to_file()
 	log_agevet_to_csv(target_ckey, admin_ckey)
+	if(CONFIG_GET(string/chat_announce_verify))
+		send2chat(new /datum/tgs_message_content("ID VETTING: Added [target_ckey] to the agevetted list[admin_ckey? " by [admin_ckey]":""]"), CONFIG_GET(string/chat_announce_verify))
 
 	// if they're online, notify
 	var/recipient = LAZYACCESS(GLOB.directory, target_ckey)

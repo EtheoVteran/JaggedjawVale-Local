@@ -10,9 +10,6 @@
 	aggressive= TRUE
 	wander = TRUE
 
-	//Thieves, often smart and slippery.
-	smart_combatant = TRUE
-
 /mob/living/carbon/human/species/human/northern/thief/retaliate(mob/living/L)
 	.=..()
 	if(m_intent == MOVE_INTENT_SNEAK)

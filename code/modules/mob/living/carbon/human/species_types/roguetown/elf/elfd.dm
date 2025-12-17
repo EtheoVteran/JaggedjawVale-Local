@@ -43,7 +43,6 @@
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
 	allowed_taur_types = list(
 		/obj/item/bodypart/taur/spider,
-		/obj/item/bodypart/taur/wasp,
 	)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = TRUE
@@ -100,10 +99,6 @@
 		/datum/customizer/organ/penis/anthro,
 		/datum/customizer/organ/breasts/human,
 		/datum/customizer/organ/vagina/human_anthro,
-		//Caustic edit
-		/datum/customizer/organ/belly/human,
-		/datum/customizer/organ/butt/human,
-		//Caustic edit end
 		)
 	body_marking_sets = list(
 		/datum/body_marking_set/none,

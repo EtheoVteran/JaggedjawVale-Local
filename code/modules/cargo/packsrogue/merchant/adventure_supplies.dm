@@ -87,20 +87,15 @@
 	contains = list(/obj/item/folding_table_stored)
 
 /datum/supply_pack/rogue/adventure_supplies/folding_alchstation
-	name = "Portable Alchemical Station"
+	name = "alchemical station kit"
 	cost = 45
 	contains = list(/obj/item/folding_alchstation_stored)
 
 /datum/supply_pack/rogue/adventure_supplies/folding_alchcauldron
-	name = "Folding Cauldron"
+	name = "folding cauldron"
 	cost = 45
 	contains = list(/obj/item/folding_alchcauldron_stored)
-//caustic edit start
-/datum/supply_pack/rogue/adventure_supplies/mobilestove
-	name = "Mobile Stove"
-	cost = 60
-	contains = list(/obj/item/mobilestove)
-//caustic edit end
+
 /datum/supply_pack/rogue/adventure_supplies/mess_kit
 	name = "Mess Kit"
 	cost = 60

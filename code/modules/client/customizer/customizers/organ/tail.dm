@@ -1,7 +1,6 @@
 /datum/customizer/organ/tail
 	name = "Tail"
 	abstract_type = /datum/customizer/organ/tail
-	allows_disabling = TRUE
 
 /datum/customizer_choice/organ/tail
 	name = "Tail"
@@ -78,7 +77,6 @@
 	sprite_accessories = list(
 		/datum/sprite_accessory/tail/shark,
 		/datum/sprite_accessory/tail/sharknofin,
-		/datum/sprite_accessory/tail/large_tails/large_shark, //Caustic Edit - Give the shark the large shark tail
 		)
 
 /datum/customizer/organ/tail/tiefling
@@ -132,11 +130,6 @@
 		/datum/sprite_accessory/tail/kangaroo,
 		/datum/sprite_accessory/tail/kitsune,
 		/datum/sprite_accessory/tail/lab,
-		//Caustic edit
-		/datum/sprite_accessory/tail/large_snake,
-		/datum/sprite_accessory/tail/large_snake_plain,
-		/datum/sprite_accessory/tail/large_tails/large_shark,
-		//Caustic edit end
 		/datum/sprite_accessory/tail/murid,
 		/datum/sprite_accessory/tail/orca,
 		/datum/sprite_accessory/tail/otie,
@@ -175,11 +168,8 @@
 		/datum/sprite_accessory/tail/haven,
 		/datum/sprite_accessory/tail/swallow,
 		/datum/sprite_accessory/tail/zorzor,
-		/datum/sprite_accessory/tail/large_snake_plain,
-		//Caustic edit
-		/datum/sprite_accessory/tail/tiefling,
-		/datum/sprite_accessory/tail/tiefling/heart,
-		//Caustic edit end
+		/datum/sprite_accessory/tail/large_snake,
+		/datum/sprite_accessory/tail/large_snake_plain
 		)
 
 /datum/customizer/organ/tail/anthro
@@ -214,12 +204,6 @@
 		/datum/sprite_accessory/tail/kangaroo,
 		/datum/sprite_accessory/tail/kitsune,
 		/datum/sprite_accessory/tail/lab,
-		//Caustic edit
-		/datum/sprite_accessory/tail/large_snake,
-		/datum/sprite_accessory/tail/large_snake_plain,
-		/datum/sprite_accessory/tail/large_tails/large_shark,
-		/datum/sprite_accessory/tail/lizard/kobold,
-		//Caustic edit end
 		/datum/sprite_accessory/tail/murid,
 		/datum/sprite_accessory/tail/orca,
 		/datum/sprite_accessory/tail/otie,
