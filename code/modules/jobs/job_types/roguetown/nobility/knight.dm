@@ -11,7 +11,7 @@
 	tutorial = "Having proven yourself both loyal and capable, you have been knighted to serve the realm as the royal family's sentry. \
 				You listen to your Liege, the Marshal, and the Knight Captain, defending your Lord and realm - the last beacon of chivalry in these dark times."
 	display_order = JDO_KNIGHT
-	whitelist_req = TRUE
+	whitelist_req = FALSE
 	outfit = /datum/outfit/job/roguetown/knight
 	advclass_cat_rolls = list(CTAG_ROYALGUARD = 20)
 	job_traits = list(TRAIT_NOBLE, TRAIT_STEELHEARTED, TRAIT_GOODTRAINER, TRAIT_GUARDSMAN)

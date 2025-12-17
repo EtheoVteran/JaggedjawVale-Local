@@ -13,7 +13,7 @@
 	advclass_cat_rolls = list(CTAG_VETERAN = 20)
 	selection_color = JCOLOR_WANDERER
 	display_order = JDO_VET
-	whitelist_req = TRUE
+	whitelist_req = FALSE
 	give_bank_account = 75 //Caustic edit Imagine being landed and starting dirt poor lmao what
 	min_pq = null //5 //Should...probably actually be a veteran of at least a few weeks before trying to teach others
 	max_pq = null

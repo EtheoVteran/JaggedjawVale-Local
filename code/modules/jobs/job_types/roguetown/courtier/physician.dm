@@ -13,7 +13,7 @@
 		Oversee your clinic and the apothecaries under you. \
 		As a member of the upper class, expect to treat nobility. You have access to accommodate this."
 	outfit = /datum/outfit/job/roguetown/physician
-	whitelist_req = TRUE
+	whitelist_req = FALSE
 	advclass_cat_rolls = list(CTAG_COURTPHYS = 2)
 
 	give_bank_account = TRUE
