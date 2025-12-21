@@ -54,7 +54,7 @@ GLOBAL_LIST_INIT(customizers, build_customizers())
 		.[type] = new type()
 	return .
 
-/proc/color_pick_sanitized(mob/user, description, title, default_value, min_tag = 0.07, max_tag = 0.80)
+/proc/color_pick_sanitized(mob/user, description, title, default_value, min_tag = 0, max_tag = 1) // min 0.07 and max 0.80
 	var/color = input(user, description, title, default_value) as color|null
 	var/good = TRUE
 	if(!color)
