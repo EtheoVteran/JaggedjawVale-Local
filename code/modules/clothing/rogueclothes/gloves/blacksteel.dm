@@ -14,6 +14,7 @@
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
+	sellprice = 85 //Better off smelting them down.
 
 /obj/item/clothing/gloves/roguetown/blacksteel/plategloves
 	name = "ancient blacksteel plate gauntlets"
@@ -30,3 +31,4 @@
 	drop_sound = 'sound/foley/dropsound/armor_drop.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
+	sellprice = 85

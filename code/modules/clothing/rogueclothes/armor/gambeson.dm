@@ -32,6 +32,7 @@
 	body_parts_covered = COVERAGE_ALL_BUT_LEGS
 	prevent_crits = PREVENT_CRITS_MOST
 	allowed_sex = list(MALE, FEMALE)
+	sellprice = 33 //This is a very nice jacket! Where'd you get it?...
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/shadowrobe
 	name = "stalker robe"
@@ -39,6 +40,7 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	prevent_crits = PREVENT_CRITS_MOST
 	icon_state = "shadowrobe"
+	sellprice = 88 //Hand's attire. If someone nabs this, well, they best get paid well that's for sure.
 
 
 /obj/item/clothing/suit/roguetown/armor/gambeson/light

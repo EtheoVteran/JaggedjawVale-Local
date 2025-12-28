@@ -62,6 +62,7 @@
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
 	mask_override = TRUE
+	sellprice = 20
 
 /obj/item/clothing/head/roguetown/dendormask
 	name = "briarmask"
@@ -77,6 +78,7 @@
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
 	mask_override = TRUE
+	sellprice = 20
 
 /obj/item/clothing/head/roguetown/necromhood
 	name = "necromancers hood"
@@ -87,6 +89,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
+	sellprice = 20
 
 /obj/item/clothing/head/roguetown/menacing
 	name = "sack hood"
@@ -115,6 +118,7 @@
 	detail_color = CLOTHING_WHITE
 	color = CLOTHING_AZURE
 	altdetail_color = CLOTHING_WHITE
+	sellprice = 77.7 //It's funny and pricy!
 
 /obj/item/clothing/head/roguetown/jester/update_icon()
 	cut_overlays()

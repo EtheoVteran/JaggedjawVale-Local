@@ -189,7 +189,6 @@
 		BB.armor_penetration *= penfactor
 		BB.damage *= damfactor
 	cocked = FALSE
-
 	..()
 
 	if(!onehanded)

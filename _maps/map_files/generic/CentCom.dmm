@@ -1499,7 +1499,7 @@
 	endTurfY = 128
 	},
 /turf/closed/mineral/rogue/bedrock,
-/area/rogue/outdoors/woods)
+/area/rogue/indoors/town/church/chapel)
 "Ch" = (
 /obj/structure/table/wood{
 	dir = 10;
@@ -1829,8 +1829,7 @@
 /obj/structure/table/church{
 	icon_state = "churchtable_end"
 	},
-/obj/item/reagent_containers/glass/cup/silver{
-	name = "pewter goblet";
+/obj/item/reagent_containers/glass/cup/silver/pewter{
 	pixel_x = -11
 	},
 /turf/open/floor/rogue/blocks,

@@ -23,10 +23,14 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Sleepless"=/datum/charflaw/sleepless,
 	"Mute"=/datum/charflaw/mute,
 	"Critical Weakness"=/datum/charflaw/critweakness,
+	//Caustic edit
+	"Bottomless"=/datum/charflaw/bottomless,
+	"Asundered Mind"=/datum/charflaw/mind_broken,
+	//Caustic edit end
 	"Hunted"=/datum/charflaw/hunted,
 	/datum/charflaw/mind_broken::name = /datum/charflaw/mind_broken,
 	"Random or No Flaw"=/datum/charflaw/randflaw,
-	"No Flaw (-3 TRIUMPHS)"=/datum/charflaw/noflaw,
+	"No Flaw (-4 TRIUMPHS)"=/datum/charflaw/noflaw, // Caustic Cove Edit start - Our rounds are now 4 hours long, so this has to cost a tiny bit more!
 	"Leper (+1 TRIUMPHS)"=/datum/charflaw/leprosy,
 	))
 
@@ -86,13 +90,13 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	name = "No Flaw"
 	desc = "I'm a normal person, how rare!"
 
-/datum/charflaw/noflaw
-	name = "No Flaw (-3 TRI)"
-	desc = "I'm a normal person, how rare! (Consumes 3 triumphs or gives a random flaw.)"
+/datum/charflaw/noflaw // Caustic Cove Edit start - Our rounds are now 4 hours long, so this has to cost a tiny bit more!
+	name = "No Flaw (-4 TRI)" // Edit here
+	desc = "I'm a normal person, how rare! (Consumes 4 triumphs or gives a random flaw.)"
 
 /datum/charflaw/noflaw/apply_post_equipment(mob/user)
 	var/mob/living/carbon/human/H = user
-	if(H.get_triumphs() < 3)
+	if(H.get_triumphs() < 4) // Edit here
 		var/flawz = GLOB.character_flaws.Copy()
 		var/charflaw = pick_n_take(flawz)
 		charflaw = GLOB.character_flaws[charflaw]
@@ -105,7 +109,8 @@ GLOBAL_LIST_INIT(character_flaws, list(
 		H.charflaw = new charflaw()
 		H.charflaw.on_mob_creation(H)
 	else
-		H.adjust_triumphs(-3)
+		H.adjust_triumphs(-4) // Edit here
+// Caustic Cove Edit end
 
 /datum/charflaw/badsight
 	name = "Bad Eyesight"

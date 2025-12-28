@@ -11,7 +11,7 @@
 		STATKEY_SPD = 2,
 		STATKEY_LCK = 1
 	)
-	subclass_spellpoints = 6
+	subclass_spellpoints = 9 // CC Edit
 	subclass_skills = list(
 		/datum/skill/misc/reading = SKILL_LEVEL_EXPERT,
 		/datum/skill/craft/alchemy = SKILL_LEVEL_EXPERT,
@@ -22,6 +22,7 @@
 		/datum/skill/magic/arcane = SKILL_LEVEL_NOVICE,
 		/datum/skill/craft/crafting = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/carpentry = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/athletics = SKILL_LEVEL_NOVICE, // CC Edit
 	)
 
 /datum/outfit/job/roguetown/adventurer/witch/pre_equip(mob/living/carbon/human/H)
@@ -47,9 +48,11 @@
 						/obj/item/chalk = 1
 						)
 	if(H.mind)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/shapeshift/crow)
+		// H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/shapeshift/crow) // CC Edit - Replaced with Animagus
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/animagus) // CC Edit
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/arcynebolt)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/magicians_brick) // CC Edit - 
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/arcynebolt) // CC Edit
 	if(H.gender == FEMALE)
 		armor = /obj/item/clothing/suit/roguetown/armor/corset
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut

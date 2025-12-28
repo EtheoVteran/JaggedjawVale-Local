@@ -34,6 +34,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+	sellprice = 6
 
 /obj/item/clothing/gloves/roguetown/fingerless/shadowgloves
 	name = "fingerless gloves"
@@ -48,6 +49,7 @@
 	armor = ARMOR_MAILLE
 	max_integrity = ARMOR_INT_SIDE_HARDLEATHER
 	allowed_race = NON_DWARVEN_RACE_TYPES
+	sellprice = 30 //Elven~
 
 /obj/item/clothing/gloves/roguetown/fingerless_leather
 	name = "fingerless leather gloves"
@@ -64,6 +66,7 @@
 	anvilrepair = null
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/hide/cured
+	sellprice = 10
 
 /obj/item/clothing/gloves/roguetown/otavan
 	name = "otavan leather gloves"
@@ -80,6 +83,7 @@
 	anvilrepair = null
 	sewrepair = TRUE
 	allowed_race = NON_DWARVEN_RACE_TYPES
+	sellprice = 30
 
 /obj/item/clothing/gloves/roguetown/otavan/inqgloves
 	name = "inquisitorial leather gloves"
@@ -87,6 +91,7 @@
 	icon_state = "inqgloves"
 	item_state = "inqgloves"
 	salvage_result = /obj/item/natural/hide/cured
+	sellprice = 15
 
 /obj/item/clothing/gloves/roguetown/otavan/psygloves
 	name = "psydonic leather gloves"
@@ -96,6 +101,7 @@
 	item_state = "psydongloves"
 	salvage_result = /obj/item/natural/hide/cured	
 	allowed_race = ALL_RACES_TYPES
+	sellprice = 20
 
 // Eastern gloves
 /obj/item/clothing/gloves/roguetown/eastgloves1
@@ -112,6 +118,7 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+	sellprice = 20
 
 /obj/item/clothing/gloves/roguetown/eastgloves2
 	name = "stylish gloves"
@@ -127,3 +134,4 @@
 	drop_sound = 'sound/foley/dropsound/cloth_drop.ogg'
 	anvilrepair = null
 	sewrepair = TRUE
+	sellprice = 20

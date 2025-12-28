@@ -194,11 +194,19 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/datum/loadout_item/loadout
 	var/datum/loadout_item/loadout2
 	var/datum/loadout_item/loadout3
+	//Cove edit start
+	var/datum/loadout_item/loadout4
+	var/datum/loadout_item/loadout5
+	//Cove edit end
 
 	var/loadout_1_hex
 	var/loadout_2_hex
 	var/loadout_3_hex
 
+	///Caustic edit
+	var/loadout_4_hex
+	var/loadout_5_hex
+	///Caustic edit end
 	var/flavortext
 
 	var/ooc_notes
@@ -222,6 +230,13 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/tgui_pref = TRUE
 
 	var/race_bonus
+
+	var/preset_bounty_enabled = FALSE
+	var/preset_bounty_poster_key
+	var/preset_bounty_severity_key
+	var/preset_bounty_severity_b_key
+	var/preset_bounty_crime
+
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -352,6 +367,13 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "</td>"
 			dat += "</tr>"
 
+			dat += "<td style='width:33%;text-align:right'>"
+			///Caustic edit
+			dat += "<a href='?_src_=prefs;preference=epilepsy;task=menu'>[epilepsy ? "Epileptic mode" : "Normal mode"]</a>"
+			///Caustic edit end
+			dat += "</td>"
+			dat += "</tr>"
+
 			// ANOTHER ROW HOLY SHIT WE FINALLY A GOD DAMN GRID NOW! WHOA!
 			dat += "<tr style='padding-top: 0px;padding-bottom:0px'>"
 			dat += "<td style='width:33%; text-align:left'>"
@@ -461,11 +483,16 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<b>Second Virtue:</b> <a href='?_src_=prefs;preference=virtuetwo;task=input'>[virtuetwo]</a><BR>"
 			else
 				virtuetwo = GLOB.virtues[/datum/virtue/none]
+			dat += get_extra_virtue_htmlpick()
 			dat += "<b>Vice:</b> <a href='?_src_=prefs;preference=charflaw;task=input'>[charflaw]</a><BR>"
 			var/datum/faith/selected_faith = GLOB.faithlist[selected_patron?.associated_faith]
 			dat += "<b>Faith:</b> <a href='?_src_=prefs;preference=faith;task=input'>[selected_faith?.name || "FUCK!"]</a><BR>"
 			dat += "<b>Patron:</b> <a href='?_src_=prefs;preference=patron;task=input'>[selected_patron?.name || "FUCK!"]</a><BR>"
 			dat += "<b>Dominance:</b> <a href='?_src_=prefs;preference=domhand'>[domhand == 1 ? "Left-handed" : "Right-handed"]</a><BR>"
+			//Caustic edit
+			dat += "<b>Size Category:</b> <a href='?_src_=prefs;preference=sizecat;task=input'>[sizecat]</a><BR>"
+			dat += "<b>Pickup able:</b> <a href='?_src_=prefs;preference=pickupable'>[pickupable == 1 ? "Yes" : "No"]</a><BR>"
+			//Caustic edit end
 			dat += "<b>Food Preferences:</b> <a href='?_src_=prefs;preference=culinary;task=menu'>Change</a><BR>"
 
 			var/musicname = (combat_music.shortname ? combat_music.shortname : combat_music.name)
@@ -570,12 +597,27 @@ GLOBAL_LIST_EMPTY(chosen_names)
 				dat += "<a href='?_src_=prefs;preference=loadout2hex;task=input'>(C)</a>"
 
 			dat += "<br><b>Loadout Item III:</b> <a href='?_src_=prefs;preference=loadout_item3;task=input'>[loadout3 ? loadout3.name : "None"]</a>"
+
 			if (loadout_3_hex)
 				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'><span style='border: 1px solid #161616; background-color: [loadout_3_hex ? loadout_3_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
 			else
 				dat += "<a href='?_src_=prefs;preference=loadout3hex;task=input'>(C)</a>"
-			dat += "</td>"
 
+			//Cove edit start
+			dat += "<br><b>Loadout Item IV:</b> <a href='?_src_=prefs;preference=loadout_item4;task=input'>[loadout4 ? loadout4.name : "None"]</a>"
+			if (loadout_4_hex)
+				dat += "<a href='?_src_=prefs;preference=loadout4hex;task=input'><span style='border: 1px solid #161616; background-color: [loadout_4_hex ? loadout_4_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+			else
+				dat += "<a href='?_src_=prefs;preference=loadout4hex;task=input'>(C)</a>"
+
+			dat += "<br><b>Loadout Item V:</b> <a href='?_src_=prefs;preference=loadout_item5;task=input'>[loadout5 ? loadout5.name : "None"]</a>"
+			if (loadout_5_hex)
+				dat += "<a href='?_src_=prefs;preference=loadout5hex;task=input'><span style='border: 1px solid #161616; background-color: [loadout_5_hex ? loadout_5_hex : "#FFFFFF"];'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></a>"
+			else
+				dat += "<a href='?_src_=prefs;preference=loadout5hex;task=input'>(C)</a>"
+			//Cove edit end
+
+			dat += "</td>"
 			dat += "</tr></table>"
 //			-----------END OF BODY TABLE-----------
 			dat += "</td>"
@@ -1298,6 +1340,39 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 	dat += "<BR><b>Quicksilver Resistant:</b> <a href='?_src_=prefs;preference=qsr;task=input'>[qsr_pref ? "Yes" : "No"]</a>"
 	dat += "</body>"
 
+	dat += "<br><br><br><b>Preset Bounty:</b> "
+	dat += "<a href='?_src_=prefs;preference=preset_bounty_toggle;task=input'>[preset_bounty_enabled ? "Enabled" : "Disabled"]</a>"
+	if(preset_bounty_enabled)
+		dat += "<br><b>Bounty Poster:</b> "
+		dat += "<a href='?_src_=prefs;preference=preset_bounty_poster_key;task=input'>\
+			[GLOB.bounty_posters[preset_bounty_poster_key] || "None"]\
+		</a>"
+
+		dat += "<br><b>Crime Severity:</b> "
+		dat += "<a href='?_src_=prefs;preference=preset_bounty_severity_key;task=input'>\
+			[GLOB.wretch_severities[preset_bounty_severity_key] || "None"]\
+		</a>"
+
+		dat += "<br><b>Crime Severity (Bandit):</b> "
+		dat += "<a href='?_src_=prefs;preference=preset_bounty_severity_b_key;task=input'>\
+			[GLOB.bandit_severities[preset_bounty_severity_b_key] || "None"]\
+		</a>"
+
+		dat += "<br><b>Crime:</b> "
+		dat += "<a href='?_src_=prefs;preference=preset_bounty_crime;task=input'>\
+			[preset_bounty_crime || "None"]\
+		</a>"
+	if(preset_bounty_severity_key && !GLOB.wretch_severities[preset_bounty_severity_key])
+		preset_bounty_severity_key = null
+
+	if(preset_bounty_severity_b_key && !GLOB.bandit_severities[preset_bounty_severity_b_key])
+		preset_bounty_severity_b_key = null
+
+	if(preset_bounty_poster_key && !GLOB.bounty_posters[preset_bounty_poster_key])
+		preset_bounty_poster_key = null
+
+
+
 	var/datum/browser/noclose/popup = new(user, "antag_setup", "<div align='center'>Special Role</div>", 400, 800) //no reason not to reuse the occupation window, as it's cleaner that way
 	popup.set_window_options("can_close=0")
 	popup.set_content(dat.Join())
@@ -1389,6 +1464,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				SetAntag(user)
 	else if(href_list["preference"] == "tgui_ui_prefs")
 		tgui_pref = !tgui_pref
+	///Caustic edit
+	else if(href_list["preference"] == "epilepsy")
+		epilepsy = !epilepsy
+	///Caustic edit end
 	else if(href_list["preference"] == "triumphs")
 		user.show_triumphs_list()
 
@@ -2112,6 +2191,51 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							to_chat(user, "<font color='yellow'><b>[loadout3.name]</b></font>")
 							if(loadout3.desc)
 								to_chat(user, "[loadout3.desc]")
+				//Cove edit start
+				if("loadout_item4")
+					var/list/loadouts_available = list("None")
+					for (var/path as anything in GLOB.loadout_items)
+						var/datum/loadout_item/loadout4 = GLOB.loadout_items[path]
+						var/donoritem = loadout4.donoritem
+						if(donoritem && !loadout4.donator_ckey_check(user.ckey))
+							continue
+						if (!loadout4.name)
+							continue
+						loadouts_available[loadout4.name] = loadout4
+
+					var/loadout_input4 = tgui_input_list(user, "Choose your character's loadout item. RMB a tree, statue or clock to collect. I cannot stress this enough. YOU DON'T SPAWN WITH THESE. YOU HAVE TO MANUALLY PICK THEM UP!!", "LOADOUT THAT YOU GET FROM A TREE OR STATUE OR CLOCK", loadouts_available) 
+					if(loadout_input4)
+						if(loadout_input4 == "None")
+							loadout4 = null
+							to_chat(user, "Who needs stuff anyway?")
+						else
+							loadout4 = loadouts_available[loadout_input4]
+							to_chat(user, "<font color='yellow'><b>[loadout4.name]</b></font>")
+							if(loadout4.desc)
+								to_chat(user, "[loadout4.desc]")
+				if("loadout_item5")
+					var/list/loadouts_available = list("None")
+					for (var/path as anything in GLOB.loadout_items)
+						var/datum/loadout_item/loadout5 = GLOB.loadout_items[path]
+						var/donoritem = loadout5.donoritem
+						if(donoritem && !loadout5.donator_ckey_check(user.ckey))
+							continue
+						if (!loadout5.name)
+							continue
+						loadouts_available[loadout5.name] = loadout5
+
+					var/loadout_input5 = tgui_input_list(user, "Choose your character's loadout item. RMB a tree, statue or clock to collect. I cannot stress this enough. YOU DON'T SPAWN WITH THESE. YOU HAVE TO MANUALLY PICK THEM UP!!", "LOADOUT THAT YOU GET FROM A TREE OR STATUE OR CLOCK", loadouts_available) 
+					if(loadout_input5)
+						if(loadout_input5 == "None")
+							loadout5 = null
+							to_chat(user, "Who needs stuff anyway?")
+						else
+							loadout5 = loadouts_available[loadout_input5]
+							to_chat(user, "<font color='yellow'><b>[loadout5.name]</b></font>")
+							if(loadout5.desc)
+								to_chat(user, "[loadout5.desc]")
+				//Cove edit end
+
 				if("loadout1hex")
 					var/choice = input(user, "Choose a color.", "Loadout Item One Colour") as null|anything in COLOR_MAP
 					if (choice && COLOR_MAP[choice])
@@ -2157,6 +2281,28 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					vampire_eyes = null
 				if("vampire_skin_clear")
 					vampire_skin = null
+
+				///Caustic edit
+				if("loadout4hex")
+					var/choice = input(user, "Choose a color.", "Loadout Item Four Colour") as null|anything in COLOR_MAP
+					if (choice && COLOR_MAP[choice])
+						loadout_4_hex = COLOR_MAP[choice]
+						if (loadout4)
+							to_chat(user, "The colour for your [loadout4::name] has been set to <b>[choice]</b>.")
+					else
+						loadout_4_hex = null
+						to_chat(user, "The colour for your <b>fourth</b> loadout item has been cleared.")
+				if("loadout5hex")
+					var/choice = input(user, "Choose a color.", "Loadout Item Five Colour") as null|anything in COLOR_MAP
+					if (choice && COLOR_MAP[choice])
+						loadout_5_hex = COLOR_MAP[choice]
+						if (loadout5)
+							to_chat(user, "The colour for your [loadout5::name] has been set to <b>[choice]</b>.")
+					else
+						loadout_5_hex = null
+						to_chat(user, "The colour for your <b>fifth</b> loadout item has been cleared.")
+				///Caustic edit end
+
 				if("species")
 					var/list/species = list()
 					for(var/A in GLOB.roundstart_races)
@@ -2175,7 +2321,40 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 					if(result)
 						set_new_race(result, user)
+				if("preset_bounty_toggle")
+					preset_bounty_enabled = !preset_bounty_enabled
+					return
 
+				if("preset_bounty_poster_key")
+					var/list/poster_choices = list()
+					for(var/key in GLOB.bounty_posters)
+						poster_choices[GLOB.bounty_posters[key]] = key
+					var/choice = input(user, "Who placed a bounty on you?", "Bounty Poster") as null|anything in poster_choices
+					if(choice)
+						preset_bounty_poster_key = poster_choices[choice]
+
+				if("preset_bounty_severity_key")
+					var/list/sev_choices = list()
+					for(var/key in GLOB.wretch_severities)
+						sev_choices[GLOB.wretch_severities[key]] = key
+					var/choice = input(user, "How severe are your crimes?", "Bounty Amount") as null|anything in sev_choices
+					if(choice)
+						preset_bounty_severity_key = sev_choices[choice]
+					return
+				
+				if("preset_bounty_severity_b_key")
+					var/list/sev_choices = list()
+					for(var/key in GLOB.bandit_severities)
+						sev_choices[GLOB.bandit_severities[key]] = key
+					var/choice = input(user, "How notorious are you?", "Bounty Amount") as null|anything in sev_choices
+					if(choice)
+						preset_bounty_severity_b_key = sev_choices[choice]
+					return
+
+				if("preset_bounty_crime")
+					preset_bounty_crime = input(user, "What is your crime?", "Crime") as text|null
+					return
+					
 				if("update_mutant_colors")
 					update_mutant_colors = !update_mutant_colors
 
@@ -2189,7 +2368,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						var/datum/virtue/V = GLOB.virtues[path]
 						if (!V.name)
 							continue
-						if ((V.name == virtue.name || V.name == virtuetwo.name) && !istype(V, /datum/virtue/none))
+						if ((V.name == virtue.name || V.name == virtuetwo.name || V.name == extravirtue.name) && !istype(V, /datum/virtue/none))
 							continue
 						if (istype(V, /datum/virtue/heretic) && !istype(selected_patron, /datum/patron/inhumen))
 							continue
@@ -2210,7 +2389,9 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						var/datum/virtue/V = GLOB.virtues[path]
 						if (!V.name)
 							continue
-						if ((V.name == virtue.name || V.name == virtuetwo.name) && !istype(V, /datum/virtue/none))
+						if ((V.name == virtue.name || V.name == virtuetwo.name || V.name == extravirtue.name) && !istype(V, /datum/virtue/none))
+							continue
+						if (istype(V, /datum/virtue/heretic) && !istype(selected_patron, /datum/patron/inhumen))
 							continue
 						if(length(pref_species.restricted_virtues) && (V.type in pref_species.restricted_virtues))
 							continue
@@ -2227,7 +2408,8 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					/*	if (statpack.type != /datum/statpack/wildcard/virtuous)
 							statpack = new /datum/statpack/wildcard/virtuous
 							to_chat(user, span_purple("Your statpack has been set to virtuous (no stats) due to selecting a virtue.")) */
-
+				if("extravirtue")
+					get_extra_virtue_input(user)
 				if("charflaw")
 					var/list/coom = GLOB.character_flaws.Copy()
 					var/result = tgui_input_list(user, "What burden will you bear?", "FLAWS",coom)
@@ -2249,7 +2431,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					if(new_body_size)
 						new_body_size = clamp(new_body_size * 0.01, BODY_SIZE_MIN, BODY_SIZE_MAX)
 						features["body_size"] = new_body_size
-
+				//Caustic edit
+				if("sizecat")
+					select_sizecat(user)
+				//Caustic edit end
 				if("taur_color")
 					var/new_taur_color = color_pick_sanitized(user, "Choose your character's taur color:", "Character Preference", "#"+taur_color)
 					if(new_taur_color)
@@ -2668,6 +2853,12 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						current_tab = text2num(href_list["tab"])
 				if("lore_primer")
 					LorePopup(user)
+				if("lore_primer")
+					LorePopup(user)
+				//Caustic edit
+				if("pickupable")
+					pickupable = !pickupable
+				//Caustic edit end
 
 	ShowChoices(user)
 	return 1
@@ -2679,7 +2870,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 		return loadout_2_hex
 	if (loadout3 && (item_path == loadout3.path) && loadout_3_hex)
 		return loadout_3_hex
-
+	if (loadout4 && (item_path == loadout4.path) && loadout_4_hex)
+		return loadout_4_hex
+	if (loadout5 && (item_path == loadout5.path) && loadout_5_hex)
+		return loadout_5_hex
 	return FALSE
 
 /datum/preferences/proc/copy_to(mob/living/carbon/human/character, icon_updates = 1, roundstart_checks = TRUE, character_setup = FALSE, antagonist = FALSE)
@@ -2810,7 +3004,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 			for(var/X in L)
 				ADD_TRAIT(character, curse2trait(X), TRAIT_GENERIC)
 
-	if(taur_type)
+	if(taur_type && pref_species.allowed_taur_types.len != 0)
 		character.Taurize(taur_type, "#[taur_color]")
 	else if(character_setup)
 		// This should only ever ~do~ anything for previews

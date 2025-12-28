@@ -82,7 +82,7 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 
 #define MIN_PENIS_SIZE 1
 #define DEFAULT_PENIS_SIZE 2
-#define MAX_PENIS_SIZE 3
+#define MAX_PENIS_SIZE 5 // JV Edit
 
 #define PENIS_SIZES list(\
 	MIN_PENIS_SIZE,\
@@ -112,11 +112,12 @@ GLOBAL_LIST_EMPTY(locked_sex_objects)
 
 #define ERECT_STATE_NONE 0
 #define ERECT_STATE_PARTIAL 1
-#define ERECT_STATE_HARD 2
+#define ERECT_STATE_STIFF 2 // JV Edit
+#define ERECT_STATE_HARD 3
 
 #define MIN_TESTICLES_SIZE 1
 #define DEFAULT_TESTICLES_SIZE 2
-#define MAX_TESTICLES_SIZE 3
+#define MAX_TESTICLES_SIZE 5
 
 #define TESTICLE_SIZES list(\
 	MIN_TESTICLES_SIZE,\

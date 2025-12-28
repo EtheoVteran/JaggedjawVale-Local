@@ -7,17 +7,21 @@
 	spawn_positions = 1
 
 	allowed_sexes = list(MALE, FEMALE) //same as town guard
-	allowed_races = RACES_NO_CONSTRUCT //Constructs are too new to even exist long enough to be veterans, plus noble title.
+	allowed_races = RACES_ALL_KINDS //Caustic edit from RACES_NO_CONSTRUCT
 	tutorial = "You've known combat your entire life. There isn't a way to kill a man you havent practiced in the tapestries of war itself. You wouldn't call yourself a hero--those belong to the men left rotting in the fields where you honed your ancient trade. You don't sleep well at night anymore, you don't like remembering what you've had to do to survive. Trading adventure for stable pay was the only logical solution, and maybe someday you'll get to lay down the blade and rest your weary body..."
 	allowed_ages = list(AGE_OLD) //VETERANS!! ARE!!! OLD!!!
 	advclass_cat_rolls = list(CTAG_VETERAN = 20)
 	selection_color = JCOLOR_WANDERER
 	display_order = JDO_VET
-	whitelist_req = TRUE
-	give_bank_account = 35
-	min_pq = 5 //Should...probably actually be a veteran of at least a few weeks before trying to teach others
+	whitelist_req = FALSE
+	give_bank_account = 75 //Caustic edit Imagine being landed and starting dirt poor lmao what
+	min_pq = null //5 //Should...probably actually be a veteran of at least a few weeks before trying to teach others
 	max_pq = null
 	round_contrib_points = 2
+
+	//Caustic Edit
+	job_traits = list(TRAIT_GOODTRAINER)
+	//Caustic Edit end
 
 	cmode_music = 'sound/music/combat_veteran.ogg'
 	job_subclasses = list(
@@ -414,8 +418,9 @@
 	subclass_stats = list(
 		STATKEY_WIL = 3,// two handed weapons require a LOT of stamina.
 		STATKEY_STR = 2,
-		STATKEY_CON = 1,
+		STATKEY_CON = 3,// caustic cove edit On par with normal grenzel merc
 		STATKEY_INT = 1,
+		STATKEY_PER = 1,// caustic cove edit On par with normal grenzel merc
 		STATKEY_SPD = -1
 	)
 	subclass_skills = list(
@@ -431,7 +436,7 @@
 		/datum/skill/combat/knives = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/swimming = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/climbing = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/misc/athletics = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,// caustic cove edit same as normal grenzel
 		/datum/skill/misc/reading = SKILL_LEVEL_NOVICE,
 		/datum/skill/misc/medicine = SKILL_LEVEL_JOURNEYMAN,
 	)

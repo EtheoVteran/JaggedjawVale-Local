@@ -10,7 +10,7 @@
 	tutorial = "Blood stains your hands and the coins you hold. You are a sell-sword, a mercenary, a contractor of war. Where you come from, what you are, who you serve.. none of it matters. What matters is that the mammon flows to your pocket."
 	display_order = JDO_MERCENARY
 	selection_color = JCOLOR_WANDERER
-	min_pq = 2		//Will be handled by classes if PQ limiting is needed. --But Until then, learn escalation, mercs.
+	min_pq = null		//Will be handled by classes if PQ limiting is needed. --But Until then, learn escalation, mercs.
 	max_pq = null
 	round_contrib_points = 1
 	outfit = null	//Handled by classes
@@ -43,6 +43,10 @@
 		/datum/advclass/mercenary/rumaclan,
 		/datum/advclass/mercenary/rumaclan/sasu,
 		/datum/advclass/mercenary/seonjang,
+		///Caustic edit
+		/datum/advclass/mercenary/shrine_priest,
+		///Caustic edit end
+		/datum/advclass/mercenary/shrine_guardian, //CC ADD
 		/datum/advclass/mercenary/steppesman,
 		/datum/advclass/mercenary/warscholar,
 		/datum/advclass/mercenary/warscholar/pontifex,

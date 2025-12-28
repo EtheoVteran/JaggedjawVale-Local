@@ -13,6 +13,7 @@
 	experimental_inhand = FALSE
 	salvage_amount = 0
 	salvage_result = null
+	sellprice = 4 //Important footwear...
 
 /obj/item/clothing/shoes/roguetown/boots
 	name = "dark boots"
@@ -56,6 +57,7 @@
 	prevent_crits = PREVENT_CRITS_NONE
 	icon_state = "ancientboots"
 	color = "#bb9696"
+	sellprice = 5 //Ew, AAlloy...
 
 /obj/item/clothing/shoes/roguetown/boots/psydonboots
 	name = "psydonic leather boots"
@@ -66,6 +68,7 @@
 	armor = ARMOR_LEATHER_GOOD
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
+	sellprice = 15 //Blessed boots...
 
 /obj/item/clothing/shoes/roguetown/boots/psydonboots/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
@@ -82,6 +85,7 @@
 	armor = ARMOR_CLOTHING
 	salvage_amount = 2
 	salvage_result = /obj/item/natural/hide/cured
+	sellprice = 14 //Noble Boots... Quite nice.
 
 /obj/item/clothing/shoes/roguetown/boots/nobleboot/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
@@ -102,6 +106,7 @@
 	sewrepair = TRUE
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
+	sellprice = 3
 
 /obj/item/clothing/shoes/roguetown/ridingboots
 	name = "riding boots"
@@ -202,6 +207,7 @@
 	max_integrity = 100			//Half that of iron boots
 	armor = ARMOR_LEATHER_GOOD			//Better than regular leather.
 	color = null
+	sellprice = 10 //Nice boots!
 
 /obj/item/clothing/shoes/roguetown/boots/leather/reinforced/short
 	name = "dress boots"
@@ -222,6 +228,7 @@
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
 	sewrepair = TRUE
+	sellprice = 10
 
 /obj/item/clothing/shoes/roguetown/boots/otavan/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
@@ -236,6 +243,7 @@
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
 	sewrepair = TRUE
+	sellprice = 12
 
 /obj/item/clothing/shoes/roguetown/boots/leather/elven_boots
 	name = "woad elven boots"
@@ -247,6 +255,7 @@
 	icon_state = "welfshoes"
 	item_state = "welfshoes"
 	anvilrepair = /datum/skill/craft/carpentry
+	sellprice = 100 //Elven boots...
 
 /obj/item/clothing/shoes/roguetown/boots/armor
 	name = "plated boots"
@@ -263,6 +272,7 @@
 	equip_sound = 'sound/foley/equip/equip_armor_plate.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
+	sellprice = 15
 
 /obj/item/clothing/shoes/roguetown/boots/armor/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_FENCERDEXTERITY)
@@ -273,6 +283,7 @@
 	max_integrity = ARMOR_INT_SIDE_ANTAG
 	armor = ARMOR_ASCENDANT
 	icon_state = "graggarplateboots"
+	sellprice = 35 //Heretic...
 
 /obj/item/clothing/shoes/roguetown/boots/armor/graggar/Initialize()
 	. = ..()
@@ -285,7 +296,8 @@
 	desc = "Gilded tombs do worm enfold."
 	icon_state = "matthiosboots"
 	armor = ARMOR_ASCENDANT
-
+	sellprice = 35 //Heretic...
+/*caustic edit start
 /obj/item/clothing/shoes/roguetown/boots/armor/matthios/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
@@ -295,7 +307,7 @@
 	if(QDELETED(src))
 		return
 	qdel(src)
-
+*///caustic edit end
 /obj/item/clothing/shoes/roguetown/boots/armor/zizo
 	max_integrity = ARMOR_INT_SIDE_ANTAG
 	name = "avantyne boots"
@@ -303,7 +315,8 @@
 	icon_state = "zizoboots"
 	chunkcolor = "#363030"
 	armor = ARMOR_ASCENDANT
-
+	sellprice = 35 //Heretic...
+/*caustic edit start
 /obj/item/clothing/shoes/roguetown/boots/armor/zizo/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
@@ -313,7 +326,7 @@
 	if(QDELETED(src))
 		return
 	qdel(src)
-
+*///caustic edit end
 /obj/item/clothing/shoes/roguetown/boots/armor/iron
 	name = "light plated boots"
 	desc = "Boots with iron for added protection."
@@ -326,6 +339,7 @@
 	armor = ARMOR_PLATE
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/iron
+	sellprice = 14
 
 /obj/item/clothing/shoes/roguetown/boots/leather/reinforced/kazengun
 	name = "armored sandals"
@@ -369,6 +383,7 @@
 	sewrepair = TRUE
 	detail_color = CLOTHING_WHITE
 	color = CLOTHING_AZURE
+	sellprice = 7.77 //Funny shoes...!
 
 /obj/item/clothing/shoes/roguetown/jester/update_icon()
 	cut_overlays()
@@ -407,6 +422,7 @@
 	armor = ARMOR_CLOTHING
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/fur
+	sellprice = 10 //Ooh pretty~
 
 /obj/item/clothing/shoes/roguetown/boots/furlinedanklets
 	name = "fur lined anklets"
@@ -420,6 +436,7 @@
 	is_barefoot = TRUE
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/fur
+	sellprice = 10
 
 /obj/item/clothing/shoes/roguetown/boots/clothlinedanklets
 	name = "cloth lined anklets"

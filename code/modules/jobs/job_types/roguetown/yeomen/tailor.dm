@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	display_order = 6
-	min_pq = 0
+	min_pq = null //0
 	selection_color = JCOLOR_YEOMAN
 	allowed_races = ACCEPTED_RACES
 	display_order = JDO_TAILOR

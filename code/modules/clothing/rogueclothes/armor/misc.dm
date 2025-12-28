@@ -21,6 +21,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	allowed_sex = list(MALE, FEMALE)
+	sellprice = 23 //Nice coat.
 
 /obj/item/clothing/suit/roguetown/armor/longcoat/brown
 	color = "#997C4F"
@@ -47,6 +48,7 @@
 	sleeved = null
 	nodismemsleeves = TRUE
 	boobed = TRUE
+	sellprice = 15 //Basic worker attire. Not super pretty. Does the job.
 
 /obj/item/clothing/suit/roguetown/armor/workervest/Initialize()
 	color = pick("#94b4b6", "#ba8f9e", "#bd978c", "#92bd8c", "#c7c981")
@@ -73,6 +75,7 @@
 	armor_class = ARMOR_CLASS_LIGHT
 	allowed_sex = list(MALE, FEMALE)
 	allowed_race = CLOTHED_RACES_TYPES
+	sellprice = 37 //Ooh now that's nice~
 
 
 /obj/item/clothing/suit/roguetown/armor/silkcoat/Initialize()

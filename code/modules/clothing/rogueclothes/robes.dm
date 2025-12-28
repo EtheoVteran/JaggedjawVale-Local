@@ -13,6 +13,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	experimental_inhand = FALSE
+	sellprice = 10
 
 /obj/item/clothing/suit/roguetown/shirt/robe/astrata
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
@@ -28,6 +29,7 @@
 	resistance_flags = FIRE_PROOF
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/abyssor //thanks to cre for abyssor clothing sprites
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
@@ -42,6 +44,7 @@
 	color = null
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/noc
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
@@ -56,6 +59,7 @@
 	color = null
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/necromancer
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
@@ -70,6 +74,7 @@
 	color = null
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/dendor
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
@@ -84,6 +89,7 @@
 	color = null
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/necra
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT|ITEM_SLOT_CLOAK
@@ -98,6 +104,7 @@
 	color = null
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/black
 	color = CLOTHING_BLACK
@@ -113,6 +120,7 @@
 	resistance_flags = FIRE_PROOF // astratan
 	armor = ARMOR_PADDED	//Equal to gamby
 	color = null
+	sellprice = 25
 
 /obj/item/clothing/suit/roguetown/shirt/robe/priest/Initialize()
 	. = ..()
@@ -145,6 +153,7 @@
 	armor = ARMOR_PADDED_GOOD	//Equal to a padded gambeson, like before.
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
+	sellprice = 15
 
 //This is for templars/psydonites. Gives a boon for wearing it to counter-act giving up plate and such.
 /obj/item/clothing/suit/roguetown/shirt/robe/monk/holy
@@ -252,6 +261,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	var/fanatic_wear = FALSE
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/eora/alt
 	name = "open eoran robe"
@@ -291,6 +301,7 @@
 	icon_state = "desertgown"
 	item_state = "desertgown"
 	color = null
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/pointfex
 	name = "pointfex's qaba"
@@ -301,6 +312,7 @@
 	color = null
 	r_sleeve_status = SLEEVE_NOMOD
 	l_sleeve_status = SLEEVE_NOMOD
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/robe/feld
 	name = "feldsher's robe"

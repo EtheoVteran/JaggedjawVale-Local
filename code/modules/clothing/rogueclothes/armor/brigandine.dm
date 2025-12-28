@@ -74,6 +74,7 @@
 	smelt_bar_num = 2
 	armor_class = ARMOR_CLASS_HEAVY
 	max_integrity = ARMOR_INT_CHEST_PLATE_BRIGANDINE + 50
+	sellprice = 34
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/retinue/coat
 	name = "coat of the commander"
@@ -93,10 +94,11 @@
 	body_parts_covered = COVERAGE_TORSO
 	armor = ARMOR_LEATHER_STUDDED
 	max_integrity = ARMOR_INT_CHEST_PLATE_BRIGANDINE
-	smeltresult = /obj/item/ingot/iron
+	smeltresult = /obj/item/ingot/steel
 	equip_delay_self = 40
 	armor_class = ARMOR_CLASS_LIGHT//steel version of the studded leather armor now
 	w_class = WEIGHT_CLASS_BULKY
+	sellprice = 22
 
 /obj/item/clothing/suit/roguetown/armor/brigandine/light/attack_right(mob/user)
 	if(detail_tag)

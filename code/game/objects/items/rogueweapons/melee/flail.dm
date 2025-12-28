@@ -106,12 +106,14 @@
 	color = "#bb9696"
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
+	sellprice = 10
 
 /obj/item/rogueweapon/flail/sflail/paflail
 	name = "ancient flail"
 	desc = "A spiked ball of polished gilbranze, chained to a reinforced handle. They say that His children worshipped the flail above all else, for its twirls replicated the Comet Syon's blazing flights."
 	icon_state = "aflail"
 	smeltresult = /obj/item/ingot/aaslag
+	sellprice = 10
 
 /obj/item/rogueweapon/flail/sflail
 	force = 30
@@ -119,6 +121,7 @@
 	desc = "This is a swift, steel flail. Strikes hard and far."
 	smeltresult = /obj/item/ingot/steel
 	minstr = 5
+	sellprice = 30
 
 /obj/item/rogueweapon/flail/sflail/silver
 	force = 35
@@ -129,6 +132,7 @@
 	smeltresult = /obj/item/ingot/silver
 	minstr = 12
 	is_silver = TRUE
+	sellprice = 80
 
 /obj/item/rogueweapon/flail/sflail/silver/ComponentInitialize()
 	AddComponent(\
@@ -147,6 +151,7 @@
 	icon_state = "necraflail"
 	force = 35
 	is_silver = TRUE
+	sellprice = 40
 
 /obj/item/rogueweapon/flail/sflail/necraflail/ComponentInitialize()
 	AddComponent(\
@@ -168,6 +173,7 @@
 	wdefense = 0
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silverblessed
+	sellprice = 120
 
 /obj/item/rogueweapon/flail/sflail/psyflail/ComponentInitialize()
 	AddComponent(\
@@ -223,6 +229,7 @@
 	dropshrink = 0.9
 	wdefense = 4
 	resistance_flags = FLAMMABLE
+	sellprice = 15
 
 /obj/item/rogueweapon/flail/peasantwarflail/getonmobprop(tag)
 	. = ..()
@@ -258,3 +265,4 @@
 	force = 27
 	wdefense = 3
 	wbalance = WBALANCE_HEAVY
+	sellprice = 15

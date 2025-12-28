@@ -171,7 +171,11 @@
 			visible_message("<span class='danger'>[src] crashes into [victim]!",\
 				"<span class='danger'>I violently crash into [victim]!</span>")
 			playsound(src,"genblunt",100,TRUE)
-
+			var/nomprob
+			if(voremode)
+				nomprob = ((get_stat(STATKEY_LCK - 10) * 10) + ((get_stat(STATKEY_STR) - 10) * 10) + (get_stat(STATKEY_SPD)))
+				if(prob(nomprob))
+					spontaneous_vore_attackby(victim, src)
 
 
 //Throwing stuff
@@ -1061,7 +1065,10 @@
 			src.apply_status_effect(/datum/status_effect/buff/undermaidenbargainheal)
 			return
 		if(health <= HEALTH_THRESHOLD_DEAD && !HAS_TRAIT(src, TRAIT_NODEATH))
-			INVOKE_ASYNC(src, PROC_REF(emote), "deathgurgle")
+			//Cove edit start
+			if (!istype(loc, /obj/belly))
+			//Cove edit end
+				INVOKE_ASYNC(src, PROC_REF(emote), "deathgurgle")
 			death()
 			cure_blind(UNCONSCIOUS_BLIND)
 			return

@@ -121,6 +121,7 @@
 	smeltresult = /obj/item/ingot/bronze
 	max_integrity = 250
 	wdefense = 2
+	sellprice = 25
 
 /obj/item/rogueweapon/mace/alloy
 	name = "decrepit mace"
@@ -133,6 +134,7 @@
 	color = "#bb9696"
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
+	sellprice = 10
 
 
 /obj/item/rogueweapon/mace/church
@@ -144,6 +146,7 @@
 	wbalance = WBALANCE_HEAVY
 	smeltresult = /obj/item/ingot/steel
 	wdefense = 3
+	sellprice = 30
 
 /obj/item/rogueweapon/mace/steel
 	force = 25
@@ -155,12 +158,14 @@
 	smeltresult = /obj/item/ingot/steel
 	wdefense = 3
 	smelt_bar_num = 2
+	sellprice = 30
 
 /obj/item/rogueweapon/mace/steel/palloy
 	name = "ancient alloy mace"
 	desc = "Polished gilbranze, perched atop a reinforced shaft. Break the unenlightened into naught-but-giblets; like a potter's vessels, dashed against the rocks."
 	icon_state = "amace"
 	smeltresult = /obj/item/ingot/aaslag
+	sellprice = 10
 
 /obj/item/rogueweapon/mace/steel/silver
 	force = 30
@@ -174,6 +179,7 @@
 	wdefense = 5
 	smelt_bar_num = 2
 	is_silver = TRUE
+	sellprice = 100
 
 /obj/item/rogueweapon/mace/steel/silver/ComponentInitialize()
 	AddComponent(\
@@ -201,6 +207,7 @@
 	anvilrepair = /datum/skill/craft/carpentry
 	minstr = 7
 	resistance_flags = FLAMMABLE
+	sellprice = 3
 
 /obj/item/rogueweapon/mace/woodclub/New()
 	..()
@@ -269,6 +276,7 @@
 	icon_state = "psyflangedmace"
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silverblessed
+	sellprice = 150
 
 /obj/item/rogueweapon/mace/cudgel/psy/ComponentInitialize()
 	AddComponent(\
@@ -312,6 +320,7 @@
 	force_wielded = 20
 	smeltresult = /obj/item/ingot/copper
 	wdefense = 2
+	sellprice = 17
 
 /obj/item/rogueweapon/mace/cudgel/justice
 	name = "'Justice'"
@@ -327,6 +336,7 @@
 	resistance_flags = FIRE_PROOF
 	minstr = 7
 	wdefense = 5
+	sellprice = 50
 
 /obj/item/rogueweapon/mace/cudgel/getonmobprop(tag)
 	. = ..()
@@ -353,6 +363,7 @@
 	associated_skill = /datum/skill/combat/swords
 	anvilrepair = /datum/skill/craft/carpentry
 	resistance_flags = FLAMMABLE
+	sellprice = 5
 
 
 /obj/item/rogueweapon/mace/wsword/getonmobprop(tag)
@@ -431,6 +442,7 @@
 	inhand_y_dimension = 64
 	bigboy = TRUE
 	gripsprite = TRUE
+	sellprice = 12 //Pretty strong, still made of wood hwoever.
 
 /obj/item/rogueweapon/mace/goden/getonmobprop(tag)
 	. = ..()
@@ -453,6 +465,7 @@
 	color = "#bb9696"
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
+	sellprice = 12
 
 /obj/item/rogueweapon/mace/goden/steel
 	name = "grand mace"
@@ -471,6 +484,7 @@
 	desc = "A twisting polehammer, forged in polished gilbranze. What did you think this was all about? This destruction, this war, this sacrifice; it was all to prepare Man for its true ascension."
 	icon_state = "ancient_supermace"
 	smeltresult = /obj/item/ingot/aaslag
+	sellprice = 12
 
 
 /obj/item/rogueweapon/mace/goden/deepduke
@@ -484,6 +498,7 @@
 	max_integrity = 900
 	smeltresult = /obj/item/ingot/steelholy
 	smelt_bar_num = 2
+	sellprice = 500 //Boss item. VERY valuable.
 
 /obj/item/rogueweapon/mace/goden/kanabo
 	name = "kanabo"
@@ -512,6 +527,7 @@
 	smelt_bar_num = 2
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silverblessed
+	sellprice = 150
 
 /obj/item/rogueweapon/mace/goden/psymace/ComponentInitialize()
 	AddComponent(\
@@ -552,6 +568,7 @@
 	color = "#bb9696"
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
+	sellprice = 10
 
 /obj/item/rogueweapon/mace/warhammer/steel
 	force = 25
@@ -561,6 +578,7 @@
 	icon_state = "swarhammer"
 	smeltresult = /obj/item/ingot/steel
 	wdefense = 4
+	sellprice = 30
 
 /obj/item/rogueweapon/mace/warhammer/getonmobprop(tag)
 	if(tag)
@@ -578,6 +596,7 @@
 	desc = "A macehead of polished gilbranze, spiked and perched atop a reinforced shaft. An elegant weapon from a more civilized age; when Man lived in harmony with one-another, and when 'the undying' was nothing more than a nitemare's thought."
 	icon_state = "awarhammer"
 	smeltresult = /obj/item/ingot/aaslag
+	sellprice = 10
 
 /obj/item/rogueweapon/mace/warhammer/steel/silver
 	name = "silver warhammer"
@@ -590,6 +609,7 @@
 	smeltresult = /obj/item/ingot/silver
 	smelt_bar_num = 2
 	is_silver = TRUE
+	sellprice = 180
 
 /obj/item/rogueweapon/mace/warhammer/steel/silver/ComponentInitialize()
 	AddComponent(\

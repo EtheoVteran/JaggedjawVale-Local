@@ -5,8 +5,8 @@
 	flag = GUILDSMAN
 	department_flag = YEOMEN
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 6
+	spawn_positions = 6
 	advclass_cat_rolls = list(CTAG_GUILDSMEN = 20)
 
 	allowed_races = ACCEPTED_RACES
@@ -29,7 +29,8 @@
 		/datum/advclass/guildsman/blacksmith,
 		/datum/advclass/guildsman/architect
 	)
-	spells = list(/obj/effect/proc_holder/spell/invoked/takeapprentice)
+	//Every guildsman should be able to temper armor pieces.
+	spells = list(/obj/effect/proc_holder/spell/invoked/takeapprentice, /obj/effect/proc_holder/spell/invoked/temperitem)
 
 /datum/advclass/guildsman/blacksmith
 	name = "Guild Blacksmith"
@@ -114,7 +115,7 @@
 		STATKEY_WIL = 2,
 		STATKEY_STR = 1,
 		STATKEY_CON = 1,
-		STATKEY_PER = 1
+		STATKEY_PER = 2
 	)
 	subclass_skills = list(
 		/datum/skill/combat/axes = SKILL_LEVEL_APPRENTICE,
@@ -136,6 +137,7 @@
 		/datum/skill/craft/traps = SKILL_LEVEL_EXPERT, //setting to higher level to counter an antag trap maker
 		/datum/skill/misc/reading = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/ceramics = SKILL_LEVEL_JOURNEYMAN,	//Just for basic pottery/glass stuff.
+		/datum/skill/combat/crossbows = SKILL_LEVEL_APPRENTICE //Caustic edit
 	)
 
 /datum/outfit/job/roguetown/guildsman/artificer/pre_equip(mob/living/carbon/human/H)

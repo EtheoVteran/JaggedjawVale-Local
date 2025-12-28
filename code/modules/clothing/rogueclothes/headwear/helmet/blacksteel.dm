@@ -96,6 +96,7 @@
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/head.dmi'
 	alternate_worn_layer  = 8.9 //On top of helmet
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
+	sellprice = 250 //Rare!!!
 
 /obj/item/clothing/head/roguetown/helmet/blacksteel/psythorns/attack_self(mob/living/user)
 	. = ..()

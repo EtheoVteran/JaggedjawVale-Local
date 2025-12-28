@@ -11,6 +11,7 @@
 	name = "buckled hat"
 	icon_state = "puritan_hat"
 	sewrepair = TRUE
+	sellprice = 5
 
 /obj/item/clothing/head/roguetown/puritan/armored
 	name = "puritan's hat" //Puritan hat subtype, meant for the Exorcist's heaviest classes. Steel skullcap-tier protection.
@@ -23,6 +24,7 @@
 	max_integrity = ARMOR_INT_HELMET_STEEL
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
+	sellprice = 25
 
 /obj/item/clothing/head/roguetown/nightman
 	name = "teller's hat"
@@ -54,6 +56,7 @@
 	item_state = "curator"
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/hide/cured
+	sellprice = 7
 
 /obj/item/clothing/head/roguetown/hatfur
 	name = "fur hat"
@@ -136,6 +139,7 @@
 	detail_tag = "_detail"
 	color = CLOTHING_WHITE
 	detail_color = COLOR_ASSEMBLY_GOLD
+	sellprice = 20 //Noble hat...
 
 /obj/item/clothing/head/roguetown/chaperon/noble/update_icon()
 	cut_overlays()
@@ -434,7 +438,6 @@
 	name = "doctor's hat"
 	desc = "My cure is most effective."
 	icon_state = "physhat"
-
 
 /obj/item/clothing/head/roguetown/helmet/tricorn
 	slot_flags = ITEM_SLOT_HEAD

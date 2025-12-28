@@ -36,6 +36,7 @@
 	max_integrity = ARMOR_INT_CHEST_PLATE_IRON
 	armor_class = ARMOR_CLASS_MEDIUM
 	smeltresult = /obj/item/ingot/iron
+	sellprice = 45 //Iron, not so much.
 
 /obj/item/clothing/suit/roguetown/armor/plate/aalloy
 	name = "decrepit half-plate"
@@ -55,6 +56,7 @@
 	icon_state = "ancientplate"
 	item_state = "ancientplate"
 	smeltresult = /obj/item/ingot/aaslag
+	sellprice = 33 //Dude... Where did you even get this?
 
 /obj/item/clothing/suit/roguetown/armor/plate/paalloy/artificer
 	name = "artificed half-plate"
@@ -68,6 +70,8 @@
 	var/active_item = FALSE //Prevents issues like dragon ring giving negative str instead
 	var/legendaryarcane = FALSE
 	var/legendaryathletics = FALSE
+	sellprice = 77 //It's been MAGICALLY MELDED!
+
 /obj/item/clothing/suit/roguetown/armor/plate/paalloy/artificer/Initialize()
 	.=..()
 	update_description()
@@ -194,6 +198,7 @@
 	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL // We are probably one of the best medium armor sets. At higher integ than most(heavy armor levels, pretty much. But worse resistances, we get the bonus over the other sets of being medium and being unequippable.)
 	icon_state = "graggarplate"
 	armor = ARMOR_CUIRASS
+	sellprice = 100 //HERETIC ARMOR... But wow is it rather... Impressive... Someone would love to have this.
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/graggar/Initialize()
 	. = ..()
@@ -207,6 +212,7 @@
 	body_parts_covered = COVERAGE_FULL // Less durability than proper plate, more expensive to manufacture, and accurate to the sprite.
 
 	max_integrity = ARMOR_INT_CHEST_PLATE_PSYDON
+	sellprice = 66
 
 /obj/item/clothing/suit/roguetown/armor/plate/fluted/ornate/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_PSYDONIAN_GRIT)
@@ -224,6 +230,7 @@
 	strip_delay = 6 SECONDS
 	armor_class = ARMOR_CLASS_HEAVY
 	smelt_bar_num = 4
+	sellprice = 86 //Oh now we're talking!
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/iron
 	name = "iron plate armor"
@@ -231,6 +238,7 @@
 	desc = "Full iron plate armor. Slow to don and doff without the aid of a good squire."
 	smeltresult = /obj/item/ingot/iron
 	max_integrity = ARMOR_INT_CHEST_PLATE_IRON
+	sellprice = 64
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/samsibsa
 	name = "samsibsa scaleplate"
@@ -278,6 +286,7 @@
 	icon_state = "ornateplate"
 
 	max_integrity = ARMOR_INT_CHEST_PLATE_STEEL
+	sellprice = 100 //Oh MAN this is nice!
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate
 	name = "psydonic plate"
@@ -302,6 +311,7 @@
 	item_state = "shadowplate"
 	armor_class = ARMOR_CLASS_MEDIUM
 	allowed_race = NON_DWARVEN_RACE_TYPES
+	sellprice = 77
 
 /obj/item/clothing/suit/roguetown/armor/plate/full/fluted/ornate/ordinator
 	name = "inquisitorial ordinator's plate"
@@ -314,7 +324,8 @@
 	icon_state = "matthiosarmor"
 	max_integrity = ARMOR_INT_CHEST_PLATE_ANTAG
 	peel_threshold = 5	//-Any- weapon will require 5 peel hits to peel coverage off of this armor.
-
+	sellprice = 150 //Heretical armor!!!
+/*caustic edit start
 /obj/item/clothing/suit/roguetown/armor/plate/full/matthios/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
@@ -324,7 +335,7 @@
 	if(QDELETED(src))
 		return
 	qdel(src)
-
+*///caustic edit end
 /obj/item/clothing/suit/roguetown/armor/plate/full/zizo
 	name = "avantyne fullplate"
 	desc = "Full plate. Called forth from the edge of what should be known. In Her name."
@@ -343,7 +354,6 @@
 		return
 	qdel(src)
 
-
 /obj/item/clothing/suit/roguetown/armor/plate/full/bikini
 	name = "full-plate corset"
 	desc = "Breastplate, pauldrons, couters, cuisses... did you forget something?"
@@ -355,6 +365,7 @@
 	equip_delay_other = 3 SECONDS
 	strip_delay = 6 SECONDS
 	smelt_bar_num = 3
+	sellprice = 60 //Wow this is breezy.
 
 /obj/item/clothing/suit/roguetown/armor/heartfelt/lord
 	slot_flags = ITEM_SLOT_ARMOR
@@ -372,6 +383,7 @@
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_HEAVY
 	smelt_bar_num = 4
+	sellprice = 200 //The lords armor...!
 
 /obj/item/clothing/suit/roguetown/armor/heartfelt/hand
 	slot_flags = ITEM_SLOT_ARMOR
@@ -389,6 +401,7 @@
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_HEAVY
 	smelt_bar_num = 4
+	sellprice = 133 //The hand's armor...!
 
 /obj/item/clothing/suit/roguetown/armor/plate/otavan
 	name = "otavan half-plate"
@@ -404,6 +417,7 @@
 	detail_color = "#5058c1"
 	armor_class = ARMOR_CLASS_HEAVY
 	var/swapped_color // holder for corset colour when the corset is toggled off.
+	sellprice = 66
 
 /obj/item/clothing/suit/roguetown/armor/plate/otavan/update_icon()
 	cut_overlays()
@@ -453,6 +467,7 @@
 	allowed_sex = list(MALE, FEMALE)
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2
+	sellprice = 45 // Wow you're... Kinda exposed here.
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass
 	slot_flags = ITEM_SLOT_ARMOR
@@ -470,6 +485,7 @@
 	smeltresult = /obj/item/ingot/steel
 	armor_class = ARMOR_CLASS_MEDIUM
 	smelt_bar_num = 2
+	sellprice = 60 //Mid. Decent.
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fencer
 	name = "fencer's cuirass"
@@ -480,6 +496,7 @@
 	smelt_bar_num = 1
 	icon_state = "fencercuirass"
 	item_state = "fencercuirass"
+	sellprice = 47 //A little less...
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fencer/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
@@ -491,6 +508,7 @@
 	smeltresult = /obj/item/ingot/silverblessed
 	icon_state = "ornatechestplate"
 	item_state = "ornatechestplate"
+	sellprice = 148
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/aalloy
 	name = "decrepit cuirass"
@@ -508,6 +526,7 @@
 	desc = "Polished gilbranze, curved into a breastplate. It is not for the heart that beats no more, but for the spirit that flows through luxless marrow; one of Her many gifts."
 	icon_state = "ancientcuirass"
 	smeltresult = /obj/item/ingot/aaslag
+	sellprice = 38 //Ew... Aaslaggg...
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted
 	name = "fluted cuirass"
@@ -516,6 +535,7 @@
 
 	body_parts_covered = CHEST | VITALS | LEGS 
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_STEEL
+	sellprice = 77 // Extended reach!
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/fluted/ornate
 	name = "psydonic cuirass"
@@ -532,6 +552,7 @@
 	max_integrity = ARMOR_INT_CHEST_MEDIUM_IRON
 	smeltresult = /obj/item/ingot/iron
 	smelt_bar_num = 2
+	sellprice = 45
 
 /obj/item/clothing/suit/roguetown/armor/plate/cuirass/copper
 	name = "heart protector"
@@ -548,6 +569,7 @@
 	name = "elven guardian cuirass"
 	desc = "A cuirass made of steel with a thin decorative gold plating. Lightweight and durable."
 	color = COLOR_ASSEMBLY_GOLD
+	sellprice = 88 //Golden.. Shiny...
 
 /obj/item/clothing/suit/roguetown/armor/plate/scale
 	slot_flags = ITEM_SLOT_ARMOR

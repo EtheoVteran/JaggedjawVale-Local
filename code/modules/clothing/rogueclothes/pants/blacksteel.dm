@@ -15,6 +15,7 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
 	smelt_bar_num = 2
+	sellprice = 145
 
 /obj/item/clothing/under/roguetown/platelegs/blacksteel
 	name = "ancient blacksteel plate chausses"
@@ -32,3 +33,4 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/blacksteel
 	smelt_bar_num = 2
+	sellprice = 145

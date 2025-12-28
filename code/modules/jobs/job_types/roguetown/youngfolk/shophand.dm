@@ -13,10 +13,10 @@
 
 	tutorial = "You work the largest store in the Peaks by grace of the Merchant who has shackled you to this drudgery. The work of stocking shelves and taking inventory for your employer is mind-numbing and repetitive--but at least you have a roof over your head and comfortable surroundings. With time, perhaps you will one day be more than a glorified servant."
 
-	outfit = /datum/outfit/job/roguetown/shophand
+	//outfit = /datum/outfit/job/roguetown/shophand //Caustic edit
 	display_order = JDO_SHOPHAND
 	give_bank_account = TRUE
-	min_pq = -10
+	min_pq = null //-10
 	max_pq = null
 	round_contrib_points = 2
 	cmode_music = 'sound/music/cmode/towner/combat_towner.ogg'
@@ -25,8 +25,23 @@
 
 	advclass_cat_rolls = list(CTAG_SHOPHAND = 2)
 	job_subclasses = list(
-		/datum/advclass/shophand
+		//Caustic edit
+		// /datum/advclass/shophand
+		/datum/advclass/guildthug,
+		/datum/advclass/guildinformant,
+		/datum/advclass/hiredservant,
+		/datum/advclass/shoplackey,
+		//Caustic edit end
 	)
+
+/datum/job/roguetown/shophand/after_spawn(mob/living/L, mob/M, latejoin = TRUE)
+	..()
+	if(ishuman(L))
+		var/mob/living/carbon/human/H = L
+		H.advsetup = 1
+		H.invisibility = INVISIBILITY_MAXIMUM
+		H.become_blind("advsetup")
+
 
 /datum/advclass/shophand
 	name = "Shophand"

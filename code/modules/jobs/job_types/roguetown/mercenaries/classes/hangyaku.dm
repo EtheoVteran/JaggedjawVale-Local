@@ -2,7 +2,7 @@
 	name = "Hangyaku-Kounen"
 	tutorial = "Rebel. Outlaw. Failure. Once, you served the upper echelons of Kazengun society as more than just a 'knight'- you were a champion, a beacon of virtue, a legend in the making. Now you wander distant Psydonia, seeking a fresh start... or fresh coin, at least."
 	allowed_sexes = list(MALE, FEMALE)
-	allowed_races = RACES_NO_CONSTRUCT //do they have constructs in kazengun?
+	allowed_races = ALL //do they have constructs in kazengun?	//CC EDIT - Allows all races to play
 	outfit = /datum/outfit/job/roguetown/mercenary/hangyaku
 	subclass_languages = list(/datum/language/kazengunese)
 	class_select_category = CLASS_CAT_KAZENGUN
@@ -63,19 +63,19 @@
 	switch(weapon_choice)
 		if("Sword")
 			H.adjust_skillrank_up_to(/datum/skill/combat/swords, SKILL_LEVEL_EXPERT, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/sword/long/kriegmesser/ssangsudo, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/sword/long/kriegmesser/ssangsudo)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sword/kazengun/noparry, SLOT_BELT_L, TRUE)	
 		if("Great Mace")
 			H.adjust_skillrank_up_to(/datum/skill/combat/maces, SKILL_LEVEL_EXPERT, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/mace/goden/kanabo, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/mace/goden/kanabo)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/gwstrap, SLOT_BACK_R, TRUE)
 		if("Spear")
 			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_EXPERT, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/spear/naginata, TRUE) 
+			H.put_in_hands(new /obj/item/rogueweapon/spear/naginata) 
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/gwstrap, SLOT_BACK_R, TRUE)
 		if("Bow")
 			H.adjust_skillrank_up_to(/datum/skill/combat/bows, SKILL_LEVEL_EXPERT, TRUE)
-			H.put_in_hands(new /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve, TRUE) 
+			H.put_in_hands(new /obj/item/gun/ballistic/revolver/grenadelauncher/bow/recurve) 
 			H.equip_to_slot_or_del(new /obj/item/quiver/arrows, SLOT_BELT_L, TRUE) 
 	var/armors = list("Heavy Armor","Medium Armor")
 	var/armor_choice = input(H, "Choose your armor.", "...THE TONGUE MUST STAY QUIET.") as anything in armors
@@ -152,7 +152,7 @@
 
 /datum/outfit/job/roguetown/mercenary/chonin/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	var/trades = list("Town Physician","Farmer","Tailor","Laborer","Merchant","Levy") //JMAN COMBAT SKILLS... AND TOWNER TRADES. GOD I HOPE THIS ISN'T A TERRIBLE IDEA.
+	var/trades = list("Town Physician","Farmer","Tailor","Laborer","Merchant","Levy","Ashigaru") //JMAN COMBAT SKILLS... AND TOWNER TRADES. GOD I HOPE THIS ISN'T A TERRIBLE IDEA. // Caustic Cove edit - Adds Ashigaru
 	var/trade_choice = input(H, "Choose your former trade.", "WHO ARE YOU?") as anything in trades
 	switch(trade_choice)
 		if("Town Physician") //alchemy and medicine. that's pretty strong as-is, so...
@@ -161,7 +161,7 @@
 			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_JOURNEYMAN, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/craft/alchemy, SKILL_LEVEL_APPRENTICE, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/misc/medicine, SKILL_LEVEL_APPRENTICE, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/woodstaff/militia, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/woodstaff/militia)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/gwstrap, SLOT_BACK_R, TRUE)
 		if("Farmer") //farming, cooking, butchery, fishing
 			ADD_TRAIT(H, TRAIT_SURVIVAL_EXPERT, TRAIT_GENERIC)
@@ -172,7 +172,7 @@
 			H.adjust_skillrank_up_to(/datum/skill/craft/carpentry, SKILL_LEVEL_APPRENTICE, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/labor/fishing, SKILL_LEVEL_APPRENTICE, TRUE)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/gwstrap, SLOT_BACK_R, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/spear/militia, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/spear/militia)
 		if("Tailor") // sewing/etc.
 			ADD_TRAIT(H, TRAIT_SEWING_EXPERT, TRAIT_GENERIC)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sword, SLOT_BELT_R, TRUE)
@@ -180,7 +180,7 @@
 			H.adjust_skillrank_up_to(/datum/skill/craft/sewing, SKILL_LEVEL_APPRENTICE, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/craft/tanning, SKILL_LEVEL_APPRENTICE, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/labor/butchering, SKILL_LEVEL_APPRENTICE, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/sword/falchion/militia, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/sword/falchion/militia)
 		if("Laborer") //physical labor; smelting, pottery, mining. you'll have to get the smithing yourself.
 			ADD_TRAIT(H, TRAIT_SMITHING_EXPERT, TRAIT_GENERIC)
 			H.adjust_skillrank_up_to(/datum/skill/combat/axes, SKILL_LEVEL_JOURNEYMAN, TRUE)
@@ -189,18 +189,26 @@
 			H.adjust_skillrank_up_to(/datum/skill/craft/carpentry, SKILL_LEVEL_APPRENTICE, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/craft/masonry, SKILL_LEVEL_APPRENTICE, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/labor/mining, SKILL_LEVEL_APPRENTICE, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/pick/militia/steel, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/pick/militia/steel)
 		if("Merchant") //the sneaky one.
 			ADD_TRAIT(H, TRAIT_SEEPRICES, TRAIT_GENERIC)
 			H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/misc/sneaking, SKILL_LEVEL_JOURNEYMAN, TRUE)
 			H.equip_to_slot_or_del(new /obj/item/storage/belt/rogue/pouch/coins/mid, SLOT_BELT_L, TRUE) 
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sheath/kazengun, SLOT_BELT_R, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/huntingknife/idagger/steel/kazengun, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/huntingknife/idagger/steel/kazengun)
 		if("Levy") //straight-up fighter. gets a naginata AND a tanto.
 			H.adjust_skillrank_up_to(/datum/skill/combat/polearms, SKILL_LEVEL_EXPERT, TRUE)
 			H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/spear/naginata, TRUE)
-			H.put_in_hands(new /obj/item/rogueweapon/huntingknife/idagger/steel/kazengun, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/spear/naginata)
+			H.put_in_hands(new /obj/item/rogueweapon/huntingknife/idagger/steel/kazengun)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/gwstrap, SLOT_BACK_R, TRUE)
 			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sheath/kazengun, SLOT_BELT_R, TRUE)
+		if("Ashigaru") // Caustic Cove edit - A dishonorable weapon, only fit for a peasant! Or maybe that's just your enemies coping and seething because they're losing. :)
+			H.adjust_skillrank_up_to(/datum/skill/combat/firearms, SKILL_LEVEL_EXPERT, TRUE)
+			H.adjust_skillrank_up_to(/datum/skill/combat/knives, SKILL_LEVEL_JOURNEYMAN, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/gun/ballistic/arquebus, SLOT_BACK_R, TRUE)
+			H.put_in_hands(new /obj/item/powderflask, TRUE)
+			H.put_in_hands(new /obj/item/rogueweapon/huntingknife/idagger/steel/kazengun, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/rogueweapon/scabbard/sheath/kazengun, SLOT_BELT_R, TRUE)
+			H.equip_to_slot_or_del(new /obj/item/quiver/bulletpouch/iron, SLOT_BELT_L, TRUE)

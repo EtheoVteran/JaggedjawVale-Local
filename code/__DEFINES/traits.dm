@@ -70,6 +70,7 @@
 #define TRAIT_DEATHBARGAIN "Death Bargain" // Used by UNDERMAIDEN'S BARGAIN
 #define TRAIT_RITUALIST "Ritualist"  // Allows use of ritual chalk
 #define TRAIT_INQUISITION "Otavan Adherent"
+#define TRAIT_CLERGY "Clergy of the Azurian Church"
 #define TRAIT_GOODTRAINER "Good Trainer"
 #define TRAIT_BADTRAINER "Bad Trainer"
 #define TRAIT_OUTDOORSMAN "Outdoorsman"
@@ -237,6 +238,11 @@
 #define TRAIT_SECONDLIFE "Second Life"
 #define TRAIT_QUICKSILVERRESISTANT "Quicksilver Resistance"
 
+//Caustic edit
+#define TRAIT_NECRAS_ABATEMENT "Necra's Abatement" //keeps deadites from doing much of anything in town
+#define TRAIT_FERAL "Feral Natured" //likes being in the woods, hates being in the city
+//Caustice edit end
+
 // Economic Roles Traits
 // Most of these should NOT be given to any true combat roles (I.E. anything with Dexpert or Miracle / Good Magic) with very few exceptions
 // Pilgrims and non-combat roles can have these as a treat
@@ -272,6 +278,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_RITUALIST = span_info("I am skilled in the holy arts. Using ritual chalk, I can more deftly channel my God's powers via runes."),
 	TRAIT_INSPIRING_MUSICIAN = span_info("The flow of battle dances to my song!"),
 	TRAIT_INQUISITION = span_info("I serve the Holy Otavan Inquisition. From a passing glance, I can recognize all other adherents within the local sect."),
+	TRAIT_CLERGY = span_info("I serve the Church of the Ten in Azuria. From a passing glance, I can recognize all other clergy of this Church."),
 	TRAIT_CHOSEN = "Astrata choose you to represent her glory.",
 	TRAIT_WEBWALK = "I can move freely between webs.",
 	TRAIT_NOSTINK = span_dead("My nose is numb to the smell of decay."),
@@ -454,6 +461,12 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_COMBAT_AWARE = span_notice("My honed senses and intuition allow me to spot notable things in the midst of battle with ease."),
 	TRAIT_RACISMISBAD = span_warning("The Black Oaks can spot ANY Foreigners and Outsiders, no matter how long they've lived in Azuria. This is an easy skill to master, as it is simply identifying who isn't an elf."),
 	TRAIT_DREAMWALKER = span_warning("I walk the dream and reality at the same time. My mind frays, but my vision shall be reality."),
+	//Caustic edit
+	TRAIT_NATURAL_ARMOR = span_notice("My hide is thick and resilient. It will regenerate so long as I keep it fed..."),
+	TRAIT_FERAL = span_info("The wilds is where I am meant to be. Civilized realms are no place for the likes of me."),
+	TRAIT_NECRAS_ABATEMENT = span_info("The Undermaiden's gaze lingers upon me, and intensifies as I draw closer to hallowed ground."),
+
+	//Caustic edit end
 	TRAIT_ENGINEERING_GOGGLES = span_warning("I can see structural details others can't."),
 	TRAIT_ASSASSIN = span_warning("My soul has been tainted by foul spirits, through them I honor my pact."),
 	TRAIT_MASTER_CARPENTER = span_warning("I've been trained to make the most of wood"),

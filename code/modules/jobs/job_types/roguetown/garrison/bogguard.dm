@@ -14,7 +14,7 @@
 				While Wardens have no higher authority, operating as a fraternity of rangers, you will be called upon as members of the garrison by the Marshal or the Crown. \
 				Serve their will and recieve what a ranger craves the most - freedom and safety."
 	display_order = JDO_TOWNGUARD
-	whitelist_req = TRUE
+	whitelist_req = FALSE
 
 	outfit = /datum/outfit/job/roguetown/bogguardsman
 	advclass_cat_rolls = list(CTAG_WARDEN = 20)
@@ -28,7 +28,10 @@
 	job_traits = list(TRAIT_OUTDOORSMAN, TRAIT_WOODSMAN, TRAIT_SURVIVAL_EXPERT)
 	job_subclasses = list(
 		/datum/advclass/bogguardsman/ranger,
-		/datum/advclass/bogguardsman/forester
+		/datum/advclass/bogguardsman/forester,
+		///Caustic edit
+		/datum/advclass/bogguardsman/wildsoul
+		///Caustic edit end
 	)
 
 /datum/outfit/job/roguetown/bogguardsman

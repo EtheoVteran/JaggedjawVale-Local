@@ -8,6 +8,7 @@
 	resistance_flags = FIRE_PROOF // astratan
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
+	sellprice = 150 //How did you get this..?
 
 /obj/item/clothing/head/roguetown/priestmask/Initialize()
 	. = ..()

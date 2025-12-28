@@ -230,7 +230,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["tip_delay"]			>> tip_delay
 	S["pda_style"]			>> pda_style
 	S["pda_color"]			>> pda_color
-
+	///Caustic edit
+	S["epilepsy"]			>> epilepsy
+	///Caustic edit end
 	// Custom hotkeys
 	S["key_bindings"]		>> key_bindings
 
@@ -273,7 +275,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	pda_style		= sanitize_inlist(pda_style, GLOB.pda_styles, initial(pda_style))
 	pda_color		= sanitize_hexcolor(pda_color, 6, 1, initial(pda_color))
 	key_bindings 	= sanitize_islist(key_bindings, list())
-
+	masked_examine  = sanitize_integer(masked_examine, 0, 1, initial(masked_examine))
 	//ROGUETOWN
 	parallax = PARALLAX_INSANE
 
@@ -364,6 +366,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["pda_style"], pda_style)
 	WRITE_FILE(S["pda_color"], pda_color)
 	WRITE_FILE(S["key_bindings"], key_bindings)
+	///Caustic edit
+	WRITE_FILE(S["epilepsy"], epilepsy)
+	///Caustic edit end
 	return TRUE
 
 
@@ -432,6 +437,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	else
 		virtuetwo = new /datum/virtue/none
 
+	load_extra_virtue(S)
+
 /datum/preferences/proc/_load_loadout(S)
 	var/loadout_type
 	S["loadout"] >> loadout_type
@@ -449,11 +456,26 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["loadout3"] >> loadout_type3
 	if (loadout_type3)
 		loadout3 = new loadout_type3()
+/datum/preferences/proc/_load_loadout4(S)
+	var/loadout_type4
+	S["loadout4"] >> loadout_type4
+	if (loadout_type4)
+		loadout4 = new loadout_type4()
+
+/datum/preferences/proc/_load_loadout5(S)
+	var/loadout_type5
+	S["loadout5"] >> loadout_type5
+	if (loadout_type5)
+		loadout5 = new loadout_type5()
 
 /datum/preferences/proc/_load_loadout_colours(S)
 	S["loadout_1_hex"] >> loadout_1_hex
 	S["loadout_2_hex"] >> loadout_2_hex
 	S["loadout_3_hex"] >> loadout_3_hex
+	///Caustic edit
+	S["loadout_4_hex"] >> loadout_4_hex
+	S["loadout_5_hex"] >> loadout_5_hex
+	///Caustic edit end
 
 /datum/preferences/proc/_load_height(S)
 	var/preview_height
@@ -542,15 +564,19 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	_load_virtue(S)
 	_load_flaw(S)
-
+	//Caustic edit
+	_load_sizecat(S)
+	_load_pickupable(S)
+	//Caustic edit end
 	_load_culinary_preferences(S)
-
 	// LETHALSTONE edit: jank-ass load our statpack choice
 	_load_statpack(S)
 
 	_load_loadout(S)
 	_load_loadout2(S)
 	_load_loadout3(S)
+	_load_loadout4(S)
+	_load_loadout5(S)
 	_load_loadout_colours(S)
 
 	_load_combat_music(S)
@@ -623,6 +649,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	S["song_title"]			>> song_title
 	S["nsfwflavortext"]	>> nsfwflavortext
 	S["erpprefs"]			>> erpprefs
+	S["preset_bounty_enabled"] >> preset_bounty_enabled
+	S["preset_bounty_poster_key"] >> preset_bounty_poster_key
+	S["preset_bounty_severity_key"] >> preset_bounty_severity_key
+	S["preset_bounty_severity_b_key"] >> preset_bounty_severity_b_key
+	S["preset_bounty_crime"] >> preset_bounty_crime
 
 	S["img_gallery"]	>> img_gallery
 	img_gallery = SANITIZE_LIST(img_gallery)
@@ -712,6 +743,9 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	S["customizer_entries"] >> customizer_entries
 	validate_customizer_entries()
+	if(parent.prefs_vr)
+		parent.prefs_vr.load_vore()
+	//load_vore_prefs(S)
 
 	return TRUE
 
@@ -795,6 +829,11 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["werewolf_headshot_link"] , werewolf_headshot_link)
 	WRITE_FILE(S["lich_headshot_link"] , lich_headshot_link)
 	WRITE_FILE(S["qsr"] , qsr_pref)
+	WRITE_FILE(S["preset_bounty_enabled"] , preset_bounty_enabled)
+	WRITE_FILE(S["preset_bounty_poster_key"] , preset_bounty_poster_key)
+	WRITE_FILE(S["preset_bounty_severity_key"] , preset_bounty_severity_key)
+	WRITE_FILE(S["preset_bounty_severity_b_key"] , preset_bounty_severity_b_key)
+	WRITE_FILE(S["preset_bounty_crime"] , preset_bounty_crime)
 	WRITE_FILE(S["flavortext"] , html_decode(flavortext))
 	WRITE_FILE(S["ooc_notes"] , html_decode(ooc_notes))
 	WRITE_FILE(S["ooc_extra"] ,	ooc_extra)
@@ -825,6 +864,16 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		WRITE_FILE(S["loadout3"] , loadout3.type)
 	else
 		WRITE_FILE(S["loadout3"] , null)
+	//Cove edit start
+	if(loadout4)
+		WRITE_FILE(S["loadout4"] , loadout4.type)
+	else
+		WRITE_FILE(S["loadout4"] , null)
+	if(loadout5)
+		WRITE_FILE(S["loadout5"] , loadout5.type)
+	else
+		WRITE_FILE(S["loadout5"] , null)
+	//Cove edit end
 
 	//Familiar Files
 	WRITE_FILE(S["familiar_name"] , familiar_prefs.familiar_name)
@@ -839,6 +888,14 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["loadout_1_hex"], loadout_1_hex)
 	WRITE_FILE(S["loadout_2_hex"], loadout_2_hex)
 	WRITE_FILE(S["loadout_3_hex"], loadout_3_hex)
+	//Caustic edit
+	WRITE_FILE(S["loadout_4_hex"], loadout_4_hex)
+	WRITE_FILE(S["loadout_5_hex"], loadout_5_hex)
+	//save_vore_prefs(S)
+	save_sizecat(S)
+	save_extra_virtue(S)
+	save_pickupable(S)
+	//Caustic edit end
 
 	return TRUE
 

@@ -1380,7 +1380,6 @@
 	reqs = list(/obj/item/natural/cloth = 2, /obj/item/natural/silk= 1 )
 	craftdiff = 3
 	ignoredensity = TRUE
-
 /datum/crafting_recipe/roguetown/structure/apiary
 	name = "apiary"
 	category = "Misc"

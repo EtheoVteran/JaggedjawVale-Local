@@ -53,12 +53,14 @@
 	flags_inv = HIDEEARS
 	flags_cover = null
 	icon_state = "kazengunheavyhelm"
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/paalloy
 	name = "ancient barbute"
 	desc = "Polished gilbranze plates, pounded to form a visored helmet. Zizo commands progress, and progress commands sacrifice; let these sundered legionnaires rise again, to spill the blood of unenlightened fools. A coiled pocket is perched atop the rim, awaiting to be plumed."
 	icon_state = "ancientbarbute"
 	smeltresult = /obj/item/ingot/aaslag
+	sellprice = 20
 
 /obj/item/clothing/head/roguetown/helmet/heavy/paalloy/attackby(obj/item/W, mob/living/user, params)
 	..()
@@ -105,6 +107,7 @@
 	desc = "Polished gilbranze plates, molded into a bulwark's greathelm. The Comet Syon's glare has been forever burnt into the alloy; a decayed glimpse into the world that was, before Psydon's slumber and Zizo's awakening."
 	icon_state = "ancientsavoyard"
 	smeltresult = /obj/item/ingot/aaslag
+	sellprice = 20
 
 /obj/item/clothing/head/roguetown/helmet/heavy/sheriff
 	name = "barred helmet"
@@ -115,6 +118,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 40
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight
 	name = "knight's armet"
@@ -128,6 +132,7 @@
 	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 40
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/black
 	color = CLOTHING_GREY
@@ -167,6 +172,7 @@
 	desc = "A noble knight's helm made of iron."
 	smeltresult = /obj/item/ingot/iron
 	max_integrity = ARMOR_INT_HELMET_HEAVY_IRON
+	sellprice = 30
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/old
 	name = "knight's helmet"
@@ -185,6 +191,7 @@
 	item_state = "skettle"
 	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL
 	adjustable = CANT_CADJUST
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/knight/skettle/attackby(obj/item/W, mob/living/user, params)
 	..()
@@ -266,6 +273,7 @@
 	icon_state = "topfhelm_gold"
 	item_state = "topfhelm_gold"
 	desc = "A full-head covering helm with the engravings of Ravox. Bravery. Justice. Ever Unyielding."
+	sellprice = 200 //Beautiful...
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket/ravox/attackby(obj/item/W, mob/living/user, params)
 	return
@@ -280,6 +288,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 40
 
 /obj/item/clothing/head/roguetown/helmet/heavy/bucket/attackby(obj/item/W, mob/living/user, params)
 	..()
@@ -315,6 +324,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 50 //Oh xylix! How daring!
 
 /obj/item/clothing/head/roguetown/helmet/heavy/xylixhelm/Initialize()
 	. = ..()
@@ -330,6 +340,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 50 //Dear astrata!
 
 /obj/item/clothing/head/roguetown/helmet/heavy/psydonbarbute
 	name = "psydonic barbute"
@@ -420,6 +431,7 @@
 	adjustable = CAN_CADJUST
 	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY
 	var/plumed = FALSE
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ordinatorhelm/ComponentInitialize()
 	AddComponent(/datum/component/adjustable_clothing, (HEAD|EARS|HAIR), (HIDEEARS|HIDEHAIR), null, 'sound/items/visor.ogg', null, UPD_HEAD)	//Standard helmet
@@ -496,6 +508,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm
 	name = "necra helmet"
@@ -507,6 +520,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/dendorhelm
 	name = "dendor helmet"
@@ -518,6 +532,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/abyssorgreathelm
 	name = "abyssorite helmet"
@@ -529,6 +544,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm
 	name = "justice eagle"
@@ -540,6 +556,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ravoxhelm/attackby(obj/item/W, mob/living/user, params)
 	..()
@@ -567,6 +584,7 @@
 	smeltresult = /obj/item/ingot/steel
 	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY
 	armor_class = null	//Needs no armor class, snowflake merc gear.
+	sellprice = 35 //Snowflake gear... Apparently
 
 /obj/item/clothing/head/roguetown/helmet/heavy/volfplate/ComponentInitialize()
 	AddComponent(/datum/component/adjustable_clothing, (HEAD|EARS|HAIR), (HIDEEARS|HIDEHAIR), null, 'sound/items/visor.ogg', null, UPD_HEAD)	//Standard helmet
@@ -616,6 +634,7 @@
 	blocksound = SOFTHIT
 	experimental_inhand = FALSE
 	experimental_onhip = FALSE
+	sellprice = 277 //Woah! Elven!?
 
 /obj/item/clothing/head/roguetown/helmet/heavy/frogmouth
 	name = "froggemund helmet"
@@ -630,6 +649,7 @@
 	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL + ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY // Worst vision. Yes.
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 50
 
 /obj/item/clothing/head/roguetown/helmet/heavy/frogmouth/attackby(obj/item/W, mob/living/user, params)
 	..()
@@ -670,6 +690,7 @@
 	bloody_icon = 'icons/effects/blood64.dmi'
 	experimental_inhand = FALSE
 	experimental_onhip = FALSE
+	sellprice = 200 //Heretical..!
 
 /obj/item/clothing/head/roguetown/helmet/heavy/matthios/Initialize()
 	. = ..()
@@ -683,6 +704,7 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT|HIDEHAIR|HIDEFACIALHAIR
 	prevent_crits = PREVENT_CRITS_ALL
 	var/active_item = FALSE
+	sellprice = 200 //Heretical..!
 
 /obj/item/clothing/head/roguetown/helmet/heavy/graggar/Initialize()
 	. = ..()
@@ -717,6 +739,7 @@
 	peel_threshold = 4
 	chunkcolor = "#363030"
 	var/frogstyle = FALSE
+	sellprice = 200 //Heretical..!
 
 /obj/item/clothing/head/roguetown/helmet/heavy/zizo/MiddleClick(mob/user)
 	frogstyle = !frogstyle
@@ -756,6 +779,7 @@
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/iron
 	smelt_bar_num = 2
+	sellprice = 20
 
 /obj/item/clothing/head/roguetown/helmet/heavy/captain
 	name = "captain's helmet"
@@ -768,6 +792,7 @@
 	max_integrity = ARMOR_INT_HELMET_HEAVY_STEEL - ARMOR_INT_HELMET_HEAVY_ADJUSTABLE_PENALTY
 	smeltresult = /obj/item/ingot/steel
 	smelt_bar_num = 2
+	sellprice = 66 //Captains helm!
 
 /obj/item/clothing/head/roguetown/helmet/heavy/captain/ComponentInitialize()
 	AddComponent(/datum/component/adjustable_clothing, (HEAD|EARS|HAIR), (HIDEEARS|HIDEHAIR), null, 'sound/items/visor.ogg', null, UPD_HEAD)	//Standard helmet

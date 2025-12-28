@@ -16,6 +16,7 @@
 	flags_inv = HIDEBOOB
 	experimental_inhand = FALSE
 	salvage_amount = 2
+	sellprice = 8
 
 	grid_width = 64
 	grid_height = 64
@@ -28,6 +29,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	body_parts_covered = CHEST|ARMS|VITALS
+	sellprice = 8
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/priest
 	name = "undervestments"
@@ -43,6 +45,7 @@
 	boobed = TRUE
 	flags_inv= HIDEBOOB|HIDECROTCH
 	body_parts_covered = CHEST|GROIN|ARMS|VITALS
+	sellprice = 8
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/black
 	color = CLOTHING_BLACK
@@ -124,12 +127,14 @@
 	r_sleeve_status = SLEEVE_TORN
 	l_sleeve_status = SLEEVE_TORN
 	body_parts_covered = CHEST|VITALS
+	sellprice = 10
 
 /obj/item/clothing/suit/roguetown/shirt/shadowshirt/elflock
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	body_parts_covered = COVERAGE_ALL_BUT_ARMS
 	max_integrity = ARMOR_INT_CHEST_LIGHT_BASE
 	armor = ARMOR_PADDED
+	sellprice = 15 //Elven!
 
 /obj/item/clothing/suit/roguetown/shirt/apothshirt
 	name = "apothecary shirt"
@@ -151,6 +156,7 @@
 	detail_color = CLOTHING_AZURE
 	color = CLOTHING_WHITE
 	boobed = TRUE
+	sellprice = 20 //Ooh~
 
 /obj/item/clothing/suit/roguetown/shirt/undershirt/artificer
 	name = "tinker suit"
@@ -173,6 +179,7 @@
 	detail_color = CLOTHING_BLACK
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
+	sellprice = 50 //Very beautiful dress.
 
 /obj/item/clothing/suit/roguetown/shirt/dress/royal/update_icon()
 	cut_overlays()
@@ -250,6 +257,7 @@
 	sleevetype = null
 	sleeved = null
 	flags_inv = HIDECROTCH|HIDEBOOB
+	sellprice = 30
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkydress/random/Initialize()
 	color = pick("#e6e5e5", "#249589", "#a32121", "#428138", "#8747b1", "#007fff")
@@ -270,6 +278,7 @@
 	l_sleeve_status = SLEEVE_NORMAL
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
 	var/picked = FALSE
+	sellprice = 30
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gown/summergown
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
@@ -288,6 +297,7 @@
 	icon_state = "fallgown"
 	boobed = TRUE
 	detail_color = "#8b3f00"
+	sellprice = 30
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gown/wintergown
 	slot_flags = ITEM_SLOT_SHIRT|ITEM_SLOT_ARMOR
@@ -353,6 +363,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
+	sellprice = 2 //Gross.
 
 /obj/item/clothing/suit/roguetown/shirt/tribalrag
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
@@ -422,6 +433,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/tunic/green
 	color = CLOTHING_GREEN
@@ -458,6 +470,7 @@
 	r_sleeve_status = SLEEVE_NORMAL
 	l_sleeve_status = SLEEVE_NORMAL
 	flags_inv = HIDECROTCH|HIDEBOOB
+	sellprice = 15
 
 /obj/item/clothing/suit/roguetown/shirt/dress/gen
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT
@@ -563,6 +576,7 @@
 	detail_color = CLOTHING_WHITE
 	color = CLOTHING_AZURE
 	altdetail_color = CLOTHING_WHITE
+	sellprice = 77.7 //Silly jester...
 
 
 /obj/item/clothing/suit/roguetown/shirt/jester/update_icon()
@@ -596,12 +610,14 @@
 	desc = "A dress woven of only the finest, softest silks. Golden thread is inlaid with a deep royal crimson, expressing the owner's exquisitve wealth."
 	icon_state = "stewarddress"
 	item_state = "stewarddress"
+	sellprice = 75 //Steward clothing; Very rich and expensive.
 
 /obj/item/clothing/suit/roguetown/shirt/tunic/silktunic
 	name = "ornate silk tunic"
 	desc = "A billowing tunic made of the finest silks and softest fabrics. Inlaid with golden thread, this is the height of fashion for the wealthiest of wearers."
 	icon_state = "stewardtunic"
 	item_state = "stewardtunic"
+	sellprice = 35
 
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/loudmouth
 	color = null
@@ -609,6 +625,7 @@
 	desc = "A robe that speaks volumes!"
 	icon_state = "loudmouthrobe"
 	item_state = "loudmouthrobe"
+	sellprice = 35
 
 //WEDDING CLOTHES
 /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/weddingdress
@@ -616,6 +633,7 @@
 	desc = "A dress woven from fine silks, with golden threads inlaid in it. Made for that special day."
 	icon_state = "weddingdress"
 	item_state = "weddingdress"
+	sellprice = 35
 
 /obj/item/clothing/suit/roguetown/shirt/exoticsilkbra
 	name = "exotic silk bra"

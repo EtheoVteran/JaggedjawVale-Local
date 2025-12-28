@@ -119,7 +119,15 @@
 				. += span_notice("A practitioner of the old ways.")
 			else
 				. += span_notice("Something about them seems... different.")
-
+// Caustic Edit Start
+		if(HAS_TRAIT(src, TRAIT_FERAL))
+			if(HAS_TRAIT(user, TRAIT_NOBLE) || HAS_TRAIT(user, TRAIT_INQUISITION) || HAS_TRAIT(user, TRAIT_WITCH))
+				. += span_warning("A savage wild-folk! Dangerous to let one's guard down around.")
+			else if(HAS_TRAIT(user, TRAIT_COMMIE) || HAS_TRAIT(user, TRAIT_CABAL) || HAS_TRAIT(user, TRAIT_HORDE) || HAS_TRAIT(user, TRAIT_DEPRAVED))
+				. += span_notice("A denizen of the wilds.")
+			else
+				. += span_notice("Something about them seems... predatory.")
+// Caustic Edit End
 		if(GLOB.lord_titles[name])
 			. += span_notice("[m3] been granted the title of \"[GLOB.lord_titles[name]]\".")
 
@@ -214,6 +222,9 @@
 		var/inquisition_text = get_inquisition_text(user)
 		if(inquisition_text)
 			. +=span_notice(inquisition_text)
+		var/clergy_text = get_clergy_text(user)
+		if(clergy_text)
+			. +=span_notice(clergy_text)
 
 		if (HAS_TRAIT(src, TRAIT_LEPROSY))
 			. += span_necrosis("A LEPER...")
@@ -506,7 +517,12 @@
 		if (is_stupid)
 			str = "[m3] something on [m2] wrists!"
 		. += str
-
+	//caustic edit
+	if(!(skin_armor == null))
+		var/str = "[m1] protected by [skin_armor]. "
+		str += skin_armor.integrity_check() //not tied to 'smart' because wild souls aren't
+		. += str
+	//caustic edit end
 	//handcuffed?
 	if(handcuffed)
 		if(user == src)
@@ -969,6 +985,8 @@
 // Used for Inquisition tags
 /mob/living/proc/get_inquisition_text(mob/examiner)
 	var/inquisition_text
+	if(!HAS_TRAIT(examiner, TRAIT_INQUISITION)) //If the person doing the examining doesn't have the trait, we don't need to do the other four ifs
+		return null
 	if(HAS_TRAIT(src, TRAIT_INQUISITION) && HAS_TRAIT(examiner, TRAIT_INQUISITION))
 		inquisition_text = "A fellow adherent to the Holy Otavan Inquisition's missives."
 	if(HAS_TRAIT(src, TRAIT_PURITAN) && HAS_TRAIT(examiner, TRAIT_INQUISITION))
@@ -979,6 +997,22 @@
 		inquisition_text = "Myself. I lead this sect of the Holy Otavan Inquisition."
 
 	return inquisition_text
+
+// Used for Church tags
+/mob/living/proc/get_clergy_text(mob/examiner)
+	var/clergy_text
+	if(!HAS_TRAIT(examiner, TRAIT_CLERGY)) //If the person doing the examining doesn't have the trait, we don't need to do the other four ifs
+		return null
+	if(HAS_TRAIT(src, TRAIT_CLERGY) && HAS_TRAIT(examiner, TRAIT_CLERGY))
+		clergy_text = "A fellow member of the Azurian Church of the Ten."
+	if(HAS_TRAIT(src, TRAIT_CHOSEN) && HAS_TRAIT(examiner, TRAIT_CLERGY))
+		clergy_text = "The Bishop, the leader of my Church and Chosen of the Ten."
+	if(HAS_TRAIT(src, TRAIT_CLERGY) && HAS_TRAIT(examiner, TRAIT_CHOSEN))
+		clergy_text = "A member of the clergy under my leadership, as willed by the Ten."
+	if(HAS_TRAIT(src, TRAIT_CHOSEN) && HAS_TRAIT(examiner, TRAIT_CHOSEN))
+		clergy_text = "Myself. I am the Bishop of Azuria, voice of the Ten in these lands."
+
+	return clergy_text
 
 /// Returns antagonist-related examine text for the mob, if any. Can return null.
 /mob/living/proc/get_villain_text(mob/examiner)

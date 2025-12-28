@@ -5,19 +5,19 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
-	allowed_races = RACES_NO_CONSTRUCT
+	allowed_races = RACES_ALL_KINDS //Caustic edit from RACES_NO_CONSTRUCT
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_ages = list(AGE_ADULT, AGE_MIDDLEAGED)
 	tutorial = "Having proven yourself both loyal and capable, you have been knighted to serve the realm as the royal family's sentry. \
 				You listen to your Liege, the Marshal, and the Knight Captain, defending your Lord and realm - the last beacon of chivalry in these dark times."
 	display_order = JDO_KNIGHT
-	whitelist_req = TRUE
+	whitelist_req = FALSE
 	outfit = /datum/outfit/job/roguetown/knight
 	advclass_cat_rolls = list(CTAG_ROYALGUARD = 20)
 	job_traits = list(TRAIT_NOBLE, TRAIT_STEELHEARTED, TRAIT_GOODTRAINER, TRAIT_GUARDSMAN)
 	give_bank_account = TRUE
 	noble_income = 10
-	min_pq = 8
+	min_pq = null //8
 	max_pq = null
 	round_contrib_points = 2
 

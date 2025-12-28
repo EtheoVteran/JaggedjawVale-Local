@@ -642,7 +642,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(SLOT_BACK)
 			if(H.backr && H.backl)
 				return FALSE
-			if( !(I.slot_flags & ITEM_SLOT_BACK) )
+			if(!(I.slot_flags & ITEM_SLOT_BACK))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(SLOT_BACK_R)
@@ -1053,8 +1053,11 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			H.add_stress(/datum/stressevent/starving)
 			H.remove_stress_list(list(/datum/stressevent/stuffed,/datum/stressevent/peckish,/datum/stressevent/hungry))
 			H.apply_status_effect(/datum/status_effect/debuff/hungryt3)
-			if(prob(3))
-				playsound(get_turf(H), pick('sound/vo/hungry1.ogg','sound/vo/hungry2.ogg','sound/vo/hungry3.ogg'), 100, TRUE, -1)
+			//Cove edit start
+			if(!istype(H.loc, /obj/belly))
+			//Cove edit end
+				if(prob(3))
+					playsound(get_turf(H), pick('sound/vo/hungry1.ogg','sound/vo/hungry2.ogg','sound/vo/hungry3.ogg'), 100, TRUE, -1)
 
 	switch(H.hydration)
 //		if(HYDRATION_LEVEL_WATERLOGGED to INFINITY)

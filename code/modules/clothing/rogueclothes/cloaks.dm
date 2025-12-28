@@ -361,6 +361,7 @@
 	detail_tag = "_psy"
 	detail_color = CLOTHING_RED
 	boobed_detail = FALSE
+	sellprice = 10 //Religious ties.
 
 /obj/item/clothing/cloak/tabard/crusader/Initialize()
 	. = ..()
@@ -620,6 +621,7 @@
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	detail_tag = "_det"
 	detail_color = CLOTHING_AZURE
+	storage = TRUE
 
 /obj/item/clothing/cloak/lordcloak/update_icon()
 	cut_overlays()
@@ -781,6 +783,7 @@
 	body_parts_covered = HEAD
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDETAIL
 	block2add = FOV_BEHIND
+	sellprice = 4
 
 /obj/item/clothing/cloak/raincloak/furcloak
 	name = "fur cloak"
@@ -826,6 +829,7 @@
 	nodismemsleeves = TRUE
 	inhand_mod = FALSE
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
+	sellprice = 6 //Pretty cape.
 
 /obj/item/clothing/cloak/cape/purple
 	color = CLOTHING_PURPLE
@@ -863,6 +867,7 @@
 	icon_state = "puritan_cape"
 	color = CLOTHING_BLACK
 	allowed_race = CLOTHED_RACES_TYPES
+	sellprice = 7
 
 /obj/item/clothing/cloak/cape/inquisitor
 	name = "Inquisitors Cloak"
@@ -871,6 +876,7 @@
 	icon = 'icons/roguetown/clothing/cloaks.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/cloaks.dmi'
 	sleeved = 'icons/roguetown/clothing/onmob/cloaks.dmi'
+	sellprice = 25 //Important cloak...
 
 /obj/item/clothing/cloak/cape/rogue
 	name = "cape"
@@ -889,6 +895,7 @@
 	slot_flags = ITEM_SLOT_BACK_R|ITEM_SLOT_CLOAK
 	inhand_mod = TRUE
 	salvage_result = /obj/item/natural/fur
+	sellprice = 7 //Fluffy!
 
 /obj/item/clothing/cloak/chasuble
 	name = "chasuble"
@@ -911,6 +918,7 @@
 	sleevetype = null
 	body_parts_covered = null
 	flags_inv = null
+	sellprice = 9 //Kinda stylish
 
 /obj/item/clothing/cloak/stole/red
 	icon_state = "stole_red"
@@ -1094,6 +1102,7 @@
 	nodismemsleeves = TRUE
 	detail_tag = "_detail"
 	detail_color = CLOTHING_BLACK
+	sellprice = 25 //Expensive clothing..~ How nice~
 
 /obj/item/clothing/cloak/matron
 	name = "matron cloak"
@@ -1108,6 +1117,7 @@
 	nodismemsleeves = TRUE
 	sleevetype = "shirt"
 	slot_flags = ITEM_SLOT_CLOAK
+	sellprice = 25 //ooh stylish~
 
 /obj/item/clothing/cloak/battlenun
 	name = "nun vestments"
@@ -1119,6 +1129,7 @@
 	alternate_worn_layer = TABARD_LAYER
 	body_parts_covered = CHEST|GROIN
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
+	sellprice = 12
 
 /obj/item/clothing/cloak/templar/MiddleClick(mob/user)
 	overarmor = !overarmor
@@ -1171,6 +1182,7 @@
 	nodismemsleeves = TRUE
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_CLOAK
 	flags_inv = HIDECROTCH|HIDEBOOB
+	sellprice = 10
 
 /obj/item/clothing/cloak/templar/ravox
 	name = "justice tabard"
@@ -1205,12 +1217,14 @@
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
+	sellprice = 66 //Black Knight...
 
 /obj/item/clothing/cloak/tabard/blkknight
 	name = "blood sash"
 	icon_state = "bksash"
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
+	sellprice = 66
 
 /obj/item/clothing/under/roguetown/platelegs/blk
 	name = "blacksteel legs"
@@ -1218,6 +1232,7 @@
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
+	sellprice = 66
 
 /obj/item/clothing/gloves/roguetown/plate/blk
 	name = "blacksteel gaunties"
@@ -1225,12 +1240,13 @@
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
+	sellprice = 66
 
 /obj/item/clothing/neck/roguetown/blkknight
 	name = "dragonscale necklace" //Who the hell put a NECKLACE in the CLOAKS file?
 	desc = "A blacksteel chain, laced through a dozen of the Hoardmaster's golden teeth. Atuned to the beating heart of Psydonia's financial systems, its true strength can only be harnessed by those who covet wealth above all else."
 	icon_state = "bktrinket"
-	max_integrity = 666 //Exceptionally strong, can be purchased multiple times, and provides a flat +2 to the entire statblock. If it gets destroyed in a fight, that's fair game. Reduced from the original value of 100,000.
+	max_integrity = 400 //Exceptionally strong, can be purchased multiple times, and provides a flat +2 to the entire statblock. If it gets destroyed in a fight, that's fair game. Reduced from the original value of 100,000.
 	armor = ARMOR_DRAGONSCALE
 	prevent_crits = PREVENT_CRITS_NONE
 	blocksound = PLATEHIT
@@ -1252,14 +1268,16 @@
 		active_item = TRUE
 		if(user.mind.special_role == "Bandit")
 			to_chat(user, span_monkeyhive("Matthios empowers me! My body glistens with spiritual wealth!"))
-			user.change_stat(STATKEY_STR, 2)
-			user.change_stat(STATKEY_PER, 2)
-			user.change_stat(STATKEY_INT, 2)
-			user.change_stat(STATKEY_CON, 2)
-			user.change_stat(STATKEY_WIL, 2)
-			user.change_stat(STATKEY_SPD, 2)
-			user.change_stat(STATKEY_LCK, 2)
+			//Caustic edit
+			user.change_stat(STATKEY_STR, 1)
+			user.change_stat(STATKEY_PER, 1)
+			user.change_stat(STATKEY_INT, 1)
+			user.change_stat(STATKEY_CON, 1)
+			user.change_stat(STATKEY_WIL, 1)
+			user.change_stat(STATKEY_SPD, 1)
+			user.change_stat(STATKEY_LCK, 1)
 			armor = getArmor("blunt" = 100, "slash" = 100, "stab" = 100, "piercing" = 100, "fire" = 50, "acid" = 0)
+			//Caustic edit end
 		else
 			to_chat(user, span_suicide("As I don the necklace, I feel my very worth draining away.."))
 			armor = getArmor("blunt" = 0, "slash" = 0, "stab" = 0, "piercing" = 0, "fire" = 0, "acid" = 0)
@@ -1293,6 +1311,7 @@
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
+	sellprice = 66
 
 /obj/item/clothing/shoes/roguetown/boots/armor/blkknight
 	name = "darkened steel boots"
@@ -1300,6 +1319,7 @@
 	icon = 'icons/roguetown/clothing/special/blkknight.dmi'
 	mob_overlay_icon = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
 	sleeved = 'icons/roguetown/clothing/special/onmob/blkknight.dmi'
+	sellprice = 66
 
 //Short hoods for guards
 
@@ -1373,6 +1393,7 @@
 	icon_state = "naledisash"
 	item_state = "naledisash"
 	desc = "A limp piece of fabric traditionally used to fasten bags that are too baggy, but in modern days has become more of a fashion statement than anything."
+	storage = TRUE
 
 /obj/item/clothing/cloak/tabard/stabard/grenzelmage
 	name = "grenzelhoftian magos mantle"
@@ -1383,6 +1404,7 @@
 	icon_state = "guard_hood" // The same as the guard hood however to break it from using the lords colors it has been given its own item path
 	item_state = "guard_hood"
 	body_parts_covered = CHEST
+	sellprice = 15 //Fashionable.
 
 /obj/item/clothing/cloak/wardencloak
 	name = "warden cloak"
@@ -1405,6 +1427,7 @@
 	sleevetype = "shirt"
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
+	sellprice = 25  //Heretical...
 
 /obj/item/clothing/cloak/graggar/Initialize()
 	. = ..()
@@ -1440,6 +1463,7 @@
 	color = CLOTHING_WHITE
 	detail_tag = "_detail"
 	detail_color = CLOTHING_WHITE
+	storage = TRUE
 
 /obj/item/clothing/cloak/poncho/fancycoat
 	name = "fancy coat"
@@ -1567,6 +1591,7 @@
 	detail_tag = "_detail"
 	alternate_worn_layer = CLOAK_BEHIND_LAYER
 	detail_color = "#39404d"
+	sellprice = 45 //Stylish~
 
 /obj/item/clothing/cloak/captain/Initialize()
 	. = ..()
