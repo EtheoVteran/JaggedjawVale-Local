@@ -73,7 +73,7 @@
 	prevent_crits = PREVENT_CRITS_ALL
 	armor = ARMOR_ASCENDANT
 	sellprice = 100 //Heretical~
-/*caustic edit start
+
 /obj/item/clothing/under/roguetown/platelegs/matthios/Initialize()
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
@@ -84,7 +84,6 @@
 	if(QDELETED(src))
 		return
 	qdel(src)
-*///caustic edit end
 
 /obj/item/clothing/under/roguetown/platelegs/zizo
 	max_integrity = ARMOR_INT_LEG_ANTAG
@@ -104,7 +103,7 @@
 	if(QDELETED(src))
 		return
 	qdel(src)
-*///caustic edit end
+
 /obj/item/clothing/under/roguetown/platelegs/zizo/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP, 8)
