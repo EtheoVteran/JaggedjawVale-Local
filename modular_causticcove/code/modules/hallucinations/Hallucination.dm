@@ -92,7 +92,7 @@
 			if("???")
 				target.playsound_local(get_turf(src), 'sound/misc/astratascream.ogg', 100, 1)
 			if(null)
-				target.playsound_local(get_turf(src), pick('modular_azurepeak/sound/mobs/abyssal/abyssal_attack.ogg','modular_azurepeak/sound/mobs/abyssal/abyssal_attack2.ogg'), 100, 1)
+				target.playsound_local(get_turf(src), pick('sound/mobs/abyssal/abyssal_attack.ogg','sound/mobs/abyssal/abyssal_attack2.ogg'), 100, 1)
 	var/next_turf = get_step(src, get_dir(src, target))
 	for(var/obj/effect/hallucination/danger/fake_ambush/O in next_turf)
 		//You can't walk here partner... Try another way!
