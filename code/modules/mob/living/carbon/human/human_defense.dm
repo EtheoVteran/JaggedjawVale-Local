@@ -106,7 +106,7 @@
 		if(skin_armor && skin_armor.obj_integrity >= 1)
 			var/obj/item/clothing/C = skin_armor
 			C = skin_armor
-			if(d_type in C.prevent_crits)
+			if(bclass in C.prevent_crits)
 				return TRUE
 		if(bp && istype(bp , /obj/item/clothing))
 			var/obj/item/clothing/C = bp
@@ -835,6 +835,7 @@
 
 /// Helper proc that returns the worn item ref that has the highest rating covering the def_zone (targeted zone) for the d_type (damage type)
 /mob/living/carbon/human/proc/get_best_worn_armor(def_zone, d_type)
+	var/protection = 0
 	var/obj/item/clothing/used
 	if(def_zone == BODY_ZONE_TAUR)
 		def_zone = pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
@@ -851,8 +852,9 @@
 		if(skin_armor) //Checks for the natural_armor first.
 			if(skin_armor.obj_integrity > 0)
 				var/obj/item/clothing/C = skin_armor
-				new_val = C.armor.getRating(d_type)
-				if(new_val > old_val)
+				var/val = C.armor.getRating(d_type)
+				val = C.armor.getRating(d_type)
+				if(val > protection)
 					used = C
 		if(bp && istype(bp, /obj/item/clothing))
 			var/obj/item/clothing/C = bp
@@ -860,10 +862,11 @@
 				if(C.max_integrity)
 					if(C.obj_integrity <= 0)
 						continue
-				new_val = C.armor.getRating(d_type) 
-				if(new_val > old_val) //Check ratings between old and new armor values.
-					old_val = new_val
-					used = C
+				var/val = C.armor.getRating(d_type)
+				if(val > 0)
+					if(val > protection)
+						protection = val
+						used = C
 	return used
 
 /// Similar to get_best_worn_armor(), but instead returns a list of all armors that protect the same spot.

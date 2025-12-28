@@ -712,6 +712,62 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 	sleep(rand(5,15))
 	target.playsound_local(target, pick('sound/misc/bleed (1).ogg','sound/misc/bleed (2).ogg','sound/misc/bleed (3).ogg'), 80)
 
+/datum/hallucination/items
+
+/datum/hallucination/items/New(mob/living/carbon/C, forced = TRUE)
+	set waitfor = FALSE
+	..()
+	//Strange items
+	if(!target.halitem)
+		target.halitem = new
+		var/obj/item/l_hand = target.get_item_for_held_index(1)
+		var/obj/item/r_hand = target.get_item_for_held_index(2)
+		var/l = rogueui_righthand
+		var/r = rogueui_lefthand
+		var/list/slots_free = list(l,r)
+		if(l_hand)
+			slots_free -= l
+		if(r_hand)
+			slots_free -= r
+		if(ishuman(target))
+			var/mob/living/carbon/human/H = target
+			if(!H.belt)
+				slots_free += rogueui_backl
+			if(!H.l_store)
+				slots_free += rogueui_beltl
+			if(!H.r_store)
+				slots_free += rogueui_beltr
+		if(slots_free.len)
+			target.halitem.screen_loc = pick(slots_free)
+			target.halitem.layer = ABOVE_HUD_LAYER
+			target.halitem.plane = ABOVE_HUD_PLANE
+			switch(rand(1,5))
+				if(1) //bottlebomb
+					target.halitem.icon = 'icons/roguetown/items/misc.dmi'
+					target.halitem.icon_state = "bbomb-lit"
+					target.halitem.name = "bottle bomb"
+				if(2) //skull
+					target.halitem.icon = 'icons/roguetown/items/valuable.dmi'
+					target.halitem.icon_state = "uw1"
+					target.halitem.name = "!!!"
+				if(3) //crown
+					target.halitem.icon = 'icons/roguetown/clothing/head.dmi'
+					target.halitem.icon_state = "serpcrown"
+					target.halitem.name = "Crown of Azure Peak"
+				if(4) //clawl
+					target.halitem.icon = 'icons/roguetown/weapons/unarmed32.dmi'
+					target.halitem.icon_state = "claw_l"
+					target.halitem.name = "ravager claws"
+				if(5) //clawr
+					target.halitem.icon = 'icons/roguetown/weapons/unarmed32.dmi'
+					target.halitem.icon_state = "claw_r"
+					target.halitem.name = "ravager claws"
+			feedback_details += "Type: [target.halitem.name]"
+			if(target.client)
+				target.client.screen += target.halitem
+			QDEL_IN(target.halitem, rand(150, 350))
+	qdel(src)
+
 /datum/hallucination/dangerflash
 
 /datum/hallucination/dangerflash/New(mob/living/carbon/C, forced = TRUE, danger_type)
