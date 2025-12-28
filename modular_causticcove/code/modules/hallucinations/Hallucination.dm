@@ -23,7 +23,7 @@
 		if("volf")
 			image = image('icons/roguetown/mob/monster/vol.dmi',src,"vv",OBJ_LAYER+0.01, dir)
 		if("skele")
-			image = image('/icons/mob/skeletons.dmi',src,"skeleton",OBJ_LAYER+0.01, dir)
+			image = image('icons/mob/skeletons.dmi',src,"skeleton",OBJ_LAYER+0.01, dir)
 		if("goblin")
 			image = image('icons/roguetown/mob/monster/goblins.dmi',src,"goblin",OBJ_LAYER+0.01, dir)
 		if("coon")
