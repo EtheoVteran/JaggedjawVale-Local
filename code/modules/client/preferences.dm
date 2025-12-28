@@ -367,15 +367,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 			dat += "</td>"
 			dat += "</tr>"
 
-			dat += "<tr style='padding-top: 0px;padding-bottom:0px'>"
-			dat += "<td style='width:33%;text-align:left'>"
-			dat += "<a href='?_src_=prefs;preference=tgui_theme'>Theme: [get_tgui_theme_display_name()]</a>"
-			dat += "</td>"
-
-			dat += "<td style='width:33%;text-align:center'>"
-			dat += "<a href='?_src_=prefs;preference=lore_primer'>* Lore Primer *</a>"
-			dat += "</td>"
-
 			dat += "<td style='width:33%;text-align:right'>"
 			///Caustic edit
 			dat += "<a href='?_src_=prefs;preference=epilepsy;task=menu'>[epilepsy ? "Epileptic mode" : "Normal mode"]</a>"
