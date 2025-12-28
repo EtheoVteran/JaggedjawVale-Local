@@ -21,13 +21,14 @@
 		var/datum/virtue/V = GLOB.virtues[path]
 		if (!V.name)
 			continue
-		if (V.name == virtue.name || V.name == virtuetwo.name || V.name == extravirtue.name)
+		if ((V.name == virtue.name || V.name == virtuetwo.name || V.name == extravirtue.name) && !istype(V, /datum/virtue/none))
 			continue
 		if (istype(V, /datum/virtue/heretic) && !istype(selected_patron, /datum/patron/inhumen))
 			continue
 		if (istype(V, /datum/virtue/utility/noble) && (pref_species == /datum/species/construct/metal))		//Stops bypass of nobility for constructs.
 			continue
 		virtue_choices[V.name] = V
+	virtue_choices = sort_list(virtue_choices)
 	var/result = tgui_input_list(user, "Select a virtue", "VIRTUES",virtue_choices)
 	if (result)
 		var/datum/virtue/virtue_chosen = virtue_choices[result]

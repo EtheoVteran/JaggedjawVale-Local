@@ -2293,18 +2293,18 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 				///Caustic edit
 				if("loadout4hex")
-					var/choice = input(user, "Choose a color.", "Loadout Item Four Colour") as null|anything in colorlist
-					if (choice && colorlist[choice])
-						loadout_4_hex = colorlist[choice]
+					var/choice = input(user, "Choose a color.", "Loadout Item Four Colour") as null|anything in COLOR_MAP
+					if (choice && COLOR_MAP[choice])
+						loadout_4_hex = COLOR_MAP[choice]
 						if (loadout4)
 							to_chat(user, "The colour for your [loadout4::name] has been set to <b>[choice]</b>.")
 					else
 						loadout_4_hex = null
 						to_chat(user, "The colour for your <b>fourth</b> loadout item has been cleared.")
 				if("loadout5hex")
-					var/choice = input(user, "Choose a color.", "Loadout Item Five Colour") as null|anything in colorlist
-					if (choice && colorlist[choice])
-						loadout_5_hex = colorlist[choice]
+					var/choice = input(user, "Choose a color.", "Loadout Item Five Colour") as null|anything in COLOR_MAP
+					if (choice && COLOR_MAP[choice])
+						loadout_5_hex = COLOR_MAP[choice]
 						if (loadout5)
 							to_chat(user, "The colour for your [loadout5::name] has been set to <b>[choice]</b>.")
 					else
