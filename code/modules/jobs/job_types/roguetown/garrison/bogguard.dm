@@ -20,7 +20,7 @@
 	advclass_cat_rolls = list(CTAG_WARDEN = 20)
 
 	give_bank_account = TRUE
-	min_pq = null //0
+	min_pq = 0
 	max_pq = null
 	round_contrib_points = 2
 
@@ -116,7 +116,7 @@
 			"None"
 		)
 		var/hoodchoice = input(H, "Choose your Shroud.", "HOOD SELECTION") as anything in hoods
-		if(helmchoice != "None")
+		if(hoodchoice != "None")
 			mask = hoods[hoodchoice]
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_LOWER_MIDDLE_CLASS, H, "Savings.")

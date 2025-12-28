@@ -96,9 +96,9 @@
 	minstr = 7
 	wdefense = 2
 	wbalance = WBALANCE_HEAVY
+	max_integrity = 350
 	icon_angle_wielded = 50
 	special = /datum/special_intent/ground_smash
-	sellprice = 20 //Maces are just what they are. Balls of metal. Maybe pricier, maybe not. They're pretty 1:1 in terms of price per material.
 
 /obj/item/rogueweapon/mace/getonmobprop(tag)
 	. = ..()
@@ -221,6 +221,18 @@
 	hitsound = list('sound/combat/hits/blunt/woodblunt (1).ogg', 'sound/combat/hits/blunt/woodblunt (2).ogg')
 	penfactor = BLUNT_DEFAULT_PENFACTOR
 
+/obj/item/rogueweapon/mace/woodclub/deprived
+	name = "warped club"
+	desc = "It's a piece of wood marred by age and strife alike."
+	icon_state = "deprived"
+	force = 20
+	force_wielded = 22
+	wbalance = WBALANCE_HEAVY
+
+/obj/item/rogueweapon/mace/woodclub/deprived/New()
+	..()
+	icon_state = "deprived"
+
 /datum/intent/mace/smash/wood/ranged
 	reach = 2
 
@@ -242,7 +254,6 @@
 	grid_width = 32
 	grid_height = 96
 	special = null //Should probably get something unique, but definitely not Mace ground slam
-	sellprice = 12 //Smelts into nothing. Good tool however.
 
 // Non-lethal mace-striking (Made for cudgel specifically. Don't put this on everything. Yeah, I mean you.)
 /datum/intent/mace/strike/wallop
@@ -296,7 +307,7 @@
 	force_wielded = 25
 	wbalance = WBALANCE_NORMAL
 	icon_state = "opsyflangedmace"
-	sellprice = 100 //Old, little less pricy
+	smeltresult = /obj/item/ingot/steel
 
 /obj/item/rogueweapon/mace/cudgel/psy/old/ComponentInitialize()
 	return
@@ -466,7 +477,7 @@
 	smelt_bar_num = 2
 	wdefense_wbonus = 5
 	special = null
-	sellprice = 40 //Nice.
+	max_integrity = 300
 
 /obj/item/rogueweapon/mace/goden/steel/paalloy
 	name = "ancient grand mace"
@@ -495,16 +506,14 @@
 	icon_state = "kanabo"
 	slot_flags = ITEM_SLOT_BACK
 	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/stab, /datum/intent/effect/daze)
-	max_integrity = 225 // it's strong wood, but it's still wood.
-	sellprice = 14 //"Strong wood"
+	max_integrity = 250 // it's strong wood, but it's still wood.
 
 /obj/item/rogueweapon/mace/goden/steel/ravox
 	name = "duel settler"
 	desc = "The tenets of ravoxian duels are enscribed upon the head of this maul."
 	icon_state = "ravoxhammer"
 	gripped_intents = list(/datum/intent/mace/strike, /datum/intent/mace/smash, /datum/intent/effect/daze) // It loses the Goden stab so I give it daze
-	max_integrity = 350 // I am reluctant to give a steel goden more force as it breaks weapon so durability it is.
-	sellprice = 150 //Rare, job-spawn only item. Very valuable from the scarcity alone.
+	max_integrity = 400 // I am reluctant to give a steel goden more force as it breaks weapon so durability it is.
 
 /obj/item/rogueweapon/mace/goden/psymace
 	name = "psydonic mace"
@@ -531,22 +540,6 @@
 		added_def = 1,\
 	)
 
-/obj/item/rogueweapon/mace/goden/psymace/old
-	name = "enduring mace"
-	desc = "An ornate mace, its silver tarnished by neglect. Even without HIS holy blessing, its weight ENDURES."
-	icon_state = "psymace"
-	force = 15
-	force_wielded = 30
-	minstr = 10
-	wdefense = 3
-	is_silver = FALSE
-	smeltresult = /obj/item/ingot/steel
-	color = COLOR_FLOORTILE_GRAY
-	sellprice = 122 //OLD!
-
-/obj/item/rogueweapon/mace/goden/psymace/old/ComponentInitialize()
-	return
-
 /obj/item/rogueweapon/mace/spiked
 	icon_state = "spiked_club"
 
@@ -563,14 +556,14 @@
 	wbalance = WBALANCE_HEAVY
 	smeltresult = /obj/item/ingot/iron
 	wdefense = 3
-	sellprice = 20
+	max_integrity = 200
 
 /obj/item/rogueweapon/mace/warhammer/alloy
 	name = "decrepit warhammer"
 	desc = "A macehead of frayed bronze, spiked and perched atop a thin shaft. To see such a knightly implement abandoned to decay and neglect; that wounds the heart greater than any well-poised strike."
 	icon_state = "awarhammer"
 	force = 17
-	max_integrity = 180
+	max_integrity = 150
 	blade_dulling = DULLING_SHAFT_CONJURED
 	color = "#bb9696"
 	smeltresult = /obj/item/ingot/aaslag
@@ -672,8 +665,7 @@
 	slot_flags = null//No.
 	smelt_bar_num = 2
 	minstr = 14
-	wdefense = 2
-	wdefense_wbonus = 1 //3
+	wdefense = 3
 	demolition_mod = 1.25 //Oh, yes...
 	pixel_y = -16
 	pixel_x = -16
@@ -683,8 +675,6 @@
 	bigboy = TRUE
 	gripsprite = TRUE
 	minstr_req = TRUE //You MUST have the required strength. No exceptions.
-	max_integrity = 300
-	sellprice = 50 //Mauls... Big and beefy.
 
 /obj/item/rogueweapon/mace/maul/getonmobprop(tag)
 	. = ..()
@@ -705,8 +695,6 @@
 	minstr = 15
 	wdefense_wbonus = 4 // from 6
 	smelt_bar_num = 3
-	max_integrity = 350
-	sellprice = 80 //Mauls... Big and beefy.
 
 //Dwarvish mauls. Unobtanium outside of Grudgebearer. Do not change that.
 /obj/item/rogueweapon/mace/maul/steel
@@ -718,8 +706,8 @@
 	minstr = 11 // +2STR from Grudgebearer Soldier. Should cover this.
 	wdefense_wbonus = 3 // 5
 	smelt_bar_num = 3 // You'll break my heart.
-	max_integrity = 340
-	sellprice = 160 //rare!
+	max_integrity = 390
+
 /obj/item/rogueweapon/mace/maul/spiked
 	name = "spiked maul"
 	desc = "Covered in spikes, such is the weapon of a Dwarvish smith. \
@@ -729,8 +717,7 @@
 	wdefense_wbonus = 2 //4
 	minstr = 10 //+1 STR from Grudgebearer Smith. It should be fine.
 	smelt_bar_num = 3 //Please don't...
-	max_integrity = 320
-	sellprice = 80 //Mauls... Big and beefy.
+	max_integrity = 370
 
 //Intents for the mauls.
 /datum/intent/effect/hobble

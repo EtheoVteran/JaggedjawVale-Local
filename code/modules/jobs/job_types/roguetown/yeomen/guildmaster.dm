@@ -18,8 +18,8 @@
 	outfit = /datum/outfit/job/roguetown/guildmaster
 	selection_color = JCOLOR_YEOMAN
 	display_order = JDO_GUILDMASTER
-	give_bank_account = 25
-	min_pq = null //5 // Higher PQ requirement as it is a leadership role. Not for total newbie.
+	give_bank_account = TRUE
+	min_pq = 5 // Higher PQ requirement as it is a leadership role. Not for total newbie.
 	max_pq = null
 	round_contrib_points = 3
 	cmode_music = 'sound/music/cmode/towner/combat_retired.ogg'
@@ -65,7 +65,7 @@
 		/datum/skill/craft/tanning = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/lockpicking = SKILL_LEVEL_EXPERT,
 		/datum/skill/craft/ceramics = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/craft/traps = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/craft/traps = SKILL_LEVEL_EXPERT, //setting to higher level to counter an antag trap maker
 		/datum/skill/misc/reading = SKILL_LEVEL_APPRENTICE,
 		//Caustic edit
 		/datum/skill/combat/crossbows = SKILL_LEVEL_JOURNEYMAN,
@@ -98,12 +98,9 @@
 		belt = /obj/item/storage/belt/rogue/leather
 		beltl = /obj/item/storage/belt/rogue/pouch/coins/rich
 		beltr = /obj/item/storage/keyring/guildmaster
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/enchant_weapon)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/conjure_weapon)
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/self/conjure_armor)
-		ADD_TRAIT(H, TRAIT_MASTER_CARPENTER, TRAIT_GENERIC)		
-		ADD_TRAIT(H, TRAIT_MASTER_MASON, TRAIT_GENERIC)	
+	ADD_TRAIT(H, TRAIT_MASTER_CARPENTER, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_MASTER_MASON, TRAIT_GENERIC)
+	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_UPPER_CLASS, H, "Savings.")
 
 /datum/outfit/job/roguetown/guildmaster/choose_loadout(mob/living/carbon/human/H)

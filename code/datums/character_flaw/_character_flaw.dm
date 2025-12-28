@@ -28,8 +28,10 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	"Asundered Mind"=/datum/charflaw/mind_broken,
 	//Caustic edit end
 	"Hunted"=/datum/charflaw/hunted,
+	/datum/charflaw/mind_broken::name = /datum/charflaw/mind_broken,
 	"Random or No Flaw"=/datum/charflaw/randflaw,
-	"No Flaw (4 TRIUMPHS)"=/datum/charflaw/noflaw, // Caustic Cove Edit start - Our rounds are now 4 hours long, so this has to cost a tiny bit more!
+	"No Flaw (-4 TRIUMPHS)"=/datum/charflaw/noflaw, // Caustic Cove Edit start - Our rounds are now 4 hours long, so this has to cost a tiny bit more!
+	"Leper (+1 TRIUMPHS)"=/datum/charflaw/leprosy,
 	))
 
 /datum/charflaw
@@ -89,32 +91,25 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	desc = "I'm a normal person, how rare!"
 
 /datum/charflaw/noflaw // Caustic Cove Edit start - Our rounds are now 4 hours long, so this has to cost a tiny bit more!
-	name = "No Flaw (4 TRI)" // Edit here
+	name = "No Flaw (-4 TRI)" // Edit here
 	desc = "I'm a normal person, how rare! (Consumes 4 triumphs or gives a random flaw.)"
-	var/nochekk = TRUE
 
-/datum/charflaw/noflaw/flaw_on_life(mob/user)
-	if(!nochekk)
-		return
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.ckey)
-			if(H.get_triumphs() < 4) // Edit here
-				nochekk = FALSE
-				var/flawz = GLOB.character_flaws.Copy()
-				var/charflaw = pick_n_take(flawz)
-				charflaw = GLOB.character_flaws[charflaw]
-				if((charflaw == type) || (charflaw == /datum/charflaw/randflaw))
-					charflaw = pick_n_take(flawz)
-					charflaw = GLOB.character_flaws[charflaw]
-				if((charflaw == type) || (charflaw == /datum/charflaw/randflaw))
-					charflaw = pick_n_take(flawz)
-					charflaw = GLOB.character_flaws[charflaw]
-				H.charflaw = new charflaw()
-				H.charflaw.on_mob_creation(H)
-			else
-				nochekk = FALSE
-				H.adjust_triumphs(-4) // Edit here
+/datum/charflaw/noflaw/apply_post_equipment(mob/user)
+	var/mob/living/carbon/human/H = user
+	if(H.get_triumphs() < 4) // Edit here
+		var/flawz = GLOB.character_flaws.Copy()
+		var/charflaw = pick_n_take(flawz)
+		charflaw = GLOB.character_flaws[charflaw]
+		if((charflaw == type) || (charflaw == /datum/charflaw/randflaw))
+			charflaw = pick_n_take(flawz)
+			charflaw = GLOB.character_flaws[charflaw]
+		if((charflaw == type) || (charflaw == /datum/charflaw/randflaw))
+			charflaw = pick_n_take(flawz)
+			charflaw = GLOB.character_flaws[charflaw]
+		H.charflaw = new charflaw()
+		H.charflaw.on_mob_creation(H)
+	else
+		H.adjust_triumphs(-4) // Edit here
 // Caustic Cove Edit end
 
 /datum/charflaw/badsight
@@ -516,3 +511,14 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	H.change_stat(STATKEY_SPD, -1)
 	H.change_stat(STATKEY_LCK, -1)
 	H.adjust_triumphs(1)
+
+/datum/charflaw/mind_broken
+	name = "Asundered Mind (+1 TRI)"
+	desc = "My mind is asundered, wether it was by own means or an unfortunate accident. Nothing seems real to me... \
+	\nWARNING: HALLUCINATIONS MAY JUMPSCARE YOU, AND PREVENT YOU FROM TELLING APART REALITY AND IMAGINATION. \
+	FURTHERMORE, THIS DOES NOT EXEMPT YOU FROM ANY RULES SET BY THE SERVER. ESCALATION STILL APPLIES."
+
+/datum/charflaw/mind_broken/apply_post_equipment(mob/living/carbon/human/insane_fool)
+	insane_fool.hallucination = INFINITY
+	ADD_TRAIT(insane_fool, TRAIT_PSYCHOSIS, TRAIT_GENERIC)
+	insane_fool.adjust_triumphs(1)

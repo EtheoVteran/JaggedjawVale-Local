@@ -221,7 +221,6 @@
 	max_blade_int = 100
 	max_integrity = 150
 	smeltresult = null
-	sellprice = 4 //Wooden!?
 
 /datum/intent/dagger/cut/wood
 	name = "cut"
@@ -871,7 +870,6 @@
 	armor_penetration = 20
 	embedding = list("embedded_pain_multiplier" = 5, "embed_chance" = 75, "embedded_fall_chance" = 10)
 	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/chop/cleaver, /datum/intent/snip, /datum/intent/dagger/sucker_punch)
-	sellprice = 20
 
 /obj/item/rogueweapon/huntingknife/scissors
 	possible_item_intents = list(/datum/intent/snip, /datum/intent/dagger/thrust, /datum/intent/dagger/cut)

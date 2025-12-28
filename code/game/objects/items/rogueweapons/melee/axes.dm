@@ -78,7 +78,6 @@
 	gripped_intents = list(/datum/intent/axe/chop/stone)
 	resistance_flags = FLAMMABLE
 	special = /datum/special_intent/axe_swing
-	sellprice = 8 //Cheap. Made of stone.
 
 
 /obj/item/rogueweapon/stoneaxe/getonmobprop(tag)
@@ -155,7 +154,7 @@
 			if("gen")
 				return list("shrink" = 0.7,"sx" = -9,"sy" = -8,"nx" = 9,"ny" = -7,"wx" = -7,"wy" = -8,"ex" = 3,"ey" = -8,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 90,"sturn" = -90,"wturn" = -90,"eturn" = 90,"nflip" = 0,"sflip" = 8,"wflip" = 8,"eflip" = 0)
 			if("wielded")
-				return list("shrink" = 0.7,"sx" = 3,"sy" = -5,"nx" = -6,"ny" = -3,"wx" = 3,"wy" = -4,"ex" = 4,"ey" = -3,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -44,"sturn" = 45,"wturn" = 47,"eturn" = 33,"nflip" = 8,"sflip" = 0,"wflip" = 0,"eflip" = 0)
+				return list("shrink" = 0.7,"sx" = 1,"sy" = -5,"nx" = -6,"ny" = -3,"wx" = 3,"wy" = -4,"ex" = 4,"ey" = -3,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -44,"sturn" = 45,"wturn" = 47,"eturn" = 33,"nflip" = 8,"sflip" = 0,"wflip" = 0,"eflip" = 8)
 			if("onbelt")
 				return list("shrink" = 0.3,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
 	return ..()
@@ -261,7 +260,8 @@
 	icon_state = "abyssoraxe"
 	icon = 'icons/roguetown/weapons/axes32.dmi'
 	max_integrity = 400 // higher int than usual
-	sellprice = 100 //Wow what the fuck this is cool! Lots of integrity!
+	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/mace/warhammer/pick, /datum/intent/axe/bash)
+	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/sword/peel, /datum/intent/axe/bash)
 
 //Pickaxe-axe ; Technically both a tool and a weapon, but it goes here due to weapon function. Subtype of woodcutter axe, mostly a weapon.
 /obj/item/rogueweapon/stoneaxe/woodcut/pick
@@ -465,22 +465,6 @@
 		added_int = 50,\
 		added_def = 1,\
 	)
-
-/obj/item/rogueweapon/stoneaxe/battle/psyaxe/old
-	name = "enduring war axe"
-	desc = "An ornate battle axe, its silver tarnished by neglect. Even a dim light can pierce the dark."
-	icon_state = "psyaxe"
-	force = 25
-	force_wielded = 30
-	minstr = 9
-	wdefense = 4
-	is_silver = FALSE
-	smeltresult = /obj/item/ingot/steel
-	color = COLOR_FLOORTILE_GRAY
-	sellprice = 40 //Lore wise has traces of silver.
-
-/obj/item/rogueweapon/stoneaxe/battle/psyaxe/old/ComponentInitialize()
-	return
 
 /obj/item/rogueweapon/stoneaxe/battle/steppesman
 	name = "aavnic valaška"

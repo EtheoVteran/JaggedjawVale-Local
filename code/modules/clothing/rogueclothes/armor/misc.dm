@@ -8,7 +8,6 @@
 	body_parts_covered = CHEST
 	salvage_result = /obj/item/natural/hide/cured
 	salvage_amount = 1
-	sellprice = 20 //Pretty... and tight!~ Pretty tight!!!
 	
 /obj/item/clothing/suit/roguetown/armor/longcoat
 	name = "longcoat"
@@ -61,7 +60,7 @@
 	icon_state = "bliaut"
 	color = null
 	armor = ARMOR_SPELLSINGER
-	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_TWIST)
+	prevent_crits = PREVENT_CRITS_NONE
 	blocksound = SOFTHIT
 	slot_flags = ITEM_SLOT_ARMOR
 	blade_dulling = DULLING_BASHCHOP

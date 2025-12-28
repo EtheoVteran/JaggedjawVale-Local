@@ -280,6 +280,8 @@
 
 	if(isliving(AM))
 		var/mob/living/L = AM
+		if(L.is_flying()) //you won't rustle things if you're flying above them
+			return
 		if(L.m_intent == MOVE_INTENT_SNEAK)
 			return
 		else
@@ -622,7 +624,7 @@
 // swarmpweed bush -- STONEKEEP PORT
 /obj/structure/flora/roguegrass/swampweed
 	name = "bunch of swampweed"
-	desc = "a green root good for smoking."
+	desc = "A green root good for smoking."
 	icon_state = "swampweed1"
 	layer = ABOVE_ALL_MOB_LAYER
 	max_integrity = 1

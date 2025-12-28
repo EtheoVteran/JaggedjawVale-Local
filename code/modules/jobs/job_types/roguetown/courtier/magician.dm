@@ -15,9 +15,9 @@
 		You owe your life to the Lord, for it was his coin that allowed you to continue your studies in these dark times. \
 		In return, you have proven time and time again as justicar and trusted advisor to their reign."
 	outfit = /datum/outfit/job/roguetown/magician
-	whitelist_req = FALSE
+	whitelist_req = TRUE
 	give_bank_account = TRUE
-	min_pq = null //4 //High potential for abuse, lovepotion/killersice/greater fireball is not for the faint of heart
+	min_pq = 4 //High potential for abuse, lovepotion/killersice/greater fireball is not for the faint of heart
 	max_pq = null
 	round_contrib_points = 2
 	cmode_music = 'sound/music/cmode/nobility/combat_courtmage.ogg'
@@ -48,6 +48,7 @@
 		STATKEY_CON = -1,
 	)
 	subclass_skills = list(
+		/datum/skill/combat/staves = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/polearms = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/swords = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,

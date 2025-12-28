@@ -5,6 +5,7 @@
 	icon_state = "priesthead"
 	item_state = "priesthead"
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	resistance_flags = FIRE_PROOF // astratan
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
 	sellprice = 150 //How did you get this..?
@@ -31,7 +32,6 @@
 	resistance_flags = FIRE_PROOF // Made of metal
 	salvage_result = /obj/item/natural/silk
 	salvage_amount = 2
-	sellprice = 20 //Ooh eora~
 
 /obj/item/clothing/head/roguetown/eoramask/equipped(mob/living/carbon/human/user, slot) //Copying Eora bud pacifism
 	. = ..()

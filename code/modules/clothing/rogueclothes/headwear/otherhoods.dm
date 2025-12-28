@@ -17,7 +17,6 @@
 	blocksound = SOFTHIT
 	salvage_result = /obj/item/natural/hide
 	salvage_amount = 1
-	sellprice = 20
 
 /obj/item/clothing/head/roguetown/beekeeper
 	name = "beekeeper's hood"
@@ -38,7 +37,6 @@
 	toggle_icon_state = FALSE
 	max_integrity = 100
 	sewrepair = TRUE
-	sellprice = 20
 
 /obj/item/clothing/head/roguetown/necrahood
 	name = "death shroud"
@@ -49,7 +47,6 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
-	sellprice = 20
 
 /obj/item/clothing/head/roguetown/necramask
 	name = "death mask"

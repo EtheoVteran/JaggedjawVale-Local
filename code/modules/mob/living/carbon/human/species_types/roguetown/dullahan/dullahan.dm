@@ -70,6 +70,7 @@
 		/datum/customizer/bodypart_feature/accessory,
 		/datum/customizer/bodypart_feature/face_detail,
 		/datum/customizer/bodypart_feature/underwear,
+		/datum/customizer/bodypart_feature/legwear,
 		/datum/customizer/organ/snout/anthro/dullahan,
 		/datum/customizer/organ/horns/demihuman,
 		/datum/customizer/organ/wings/anthro,
@@ -93,24 +94,30 @@
 	body_marking_sets = list(
 		/datum/body_marking_set/none,
 		/datum/body_marking_set/belly,
-		/datum/body_marking_set/socks,
+		/datum/body_marking_set/bellysocks,
 		/datum/body_marking_set/tiger,
 		/datum/body_marking_set/tiger_dark,
-		//Caustic edit
-		/datum/body_marking_set/bellysocks,
 		/datum/body_marking_set/gradient,
-		//Caustic edit end
 	)
 	body_markings = list(
 		/datum/body_marking/flushed_cheeks,
 		/datum/body_marking/eyeliner,
-		/datum/body_marking/tonage,
+		/datum/body_marking/plain,
+		/datum/body_marking/belly,
+		/datum/body_marking/bellyslim,
+		/datum/body_marking/butt,
+		/datum/body_marking/sock,
 		/datum/body_marking/socklonger,
 		/datum/body_marking/tips,
+		/datum/body_marking/backspots,
+		/datum/body_marking/front,
+		/datum/body_marking/tonage,
 		/datum/body_marking/nose,
+		/datum/body_marking/harlequin,
+		/datum/body_marking/harlequinreversed,
 		/datum/body_marking/bangs,
 		/datum/body_marking/bun,
-		/datum/body_marking/plain,
+		/datum/body_marking/gradient,
 		//Caustic edit
 		/datum/body_marking/tiger,
 		/datum/body_marking/tiger/dark,
@@ -131,7 +138,6 @@
 		/datum/body_marking/spotted,
 		/datum/body_marking/harlequin,
 		/datum/body_marking/harlequinreversed,
-		/datum/body_marking/gradient,
 		//Caustic edit end
 	)
 	descriptor_choices = list(

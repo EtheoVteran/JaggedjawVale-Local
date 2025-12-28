@@ -291,7 +291,7 @@
 	list_reagents = list(/datum/reagent/consumable/pumpkinspice = 1)
 	grind_results = list(/datum/reagent/consumable/pumpkinspice = 10)
 	volume = 1
-	sellprice = 8
+	sellprice = 0
 
 /datum/reagent/consumable/pumpkinspice
 	name = "pumpkin spice"

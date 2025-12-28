@@ -24,7 +24,6 @@
 	grid_width = 32
 	grid_height = 96
 	special = /datum/special_intent/flail_sweep
-	sellprice = 15 //Akin to blunt; Also rather even.
 
 /datum/intent/flail/strike
 	name = "strike"
@@ -186,21 +185,6 @@
 		added_int = 50,\
 		added_def = 0,\
 	)
-	
-/obj/item/rogueweapon/flail/sflail/psyflail/old
-	name = "enduring flail"
-	desc = "An ornate flail, its silver tarnished by neglect. Bring down the COMET on the unholy."
-	icon_state = "psyflail"
-	force = 30
-	minstr = 5
-	wdefense = 0
-	is_silver = FALSE
-	smeltresult = /obj/item/ingot/steel
-	color = COLOR_FLOORTILE_GRAY
-	sellprice = 100
-
-/obj/item/rogueweapon/flail/sflail/psyflail/old/ComponentInitialize()
-	return
 
 /obj/item/rogueweapon/flail/sflail/psyflail/relic
 	name = "Consecratia"

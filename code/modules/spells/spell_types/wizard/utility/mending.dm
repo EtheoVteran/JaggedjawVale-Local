@@ -46,36 +46,37 @@
 		revert_cast()
 		return
 
-	var/arcane_skill = user.get_skill_level(associated_skill)
-	var/cast_time = (lesser_modifier + 40) - ((arcane_skill * 4) + (user.STAINT / 4))
+	user.visible_message(
+		span_warning("[user] begins to concentrate on [I]!"),
+		span_notice("I begin to concentrate on [I]..")
+	)
+	if(!do_after(user, 4 SECONDS, TRUE, I, TRUE))
+		to_chat(user, span_warning("My concentration breaks! I could not repair [I]."))
+		revert_cast()
+		return
 
-	for(var/i in 1 to 10)
+	repair_percent = initial(repair_percent)
+	int_bonus = CLAMP((user.STAINT * 0.01), 0.01, 0.9)
+	repair_percent += int_bonus
+	repair_percent *= I.max_integrity
 
-		if(!user.Adjacent(I)) //Check if the item is always near during the loop.
-			to_chat(user, span_warning("I can't reach the item from here!"))
-			break
+	I.obj_integrity = min(I.obj_integrity + repair_percent, I.max_integrity)
+	user.visible_message(span_info("[I] glows in a faint mending light."))
+	playsound(I, 'sound/foley/sewflesh.ogg', 66, TRUE, -1)
 
-		if(do_after(user, cast_time, target = I))
-			int_bonus = (user.STAINT * 0.01)
-			repair_percent = (int_bonus * max_integrity)
-
-			I.obj_integrity = min(I.obj_integrity + repair_percent, I.max_integrity)
-			user.visible_message(span_info("[I] glows in a faint mending light."))
-			playsound(I, 'sound/foley/sewflesh.ogg', 66, TRUE, -1)
-
-			if(I.obj_integrity >= I.max_integrity)
-				if(I.obj_broken)
-					I.obj_fix()
-				if(I.peel_count)
-					I.peel_count--
-					to_chat(user, span_info("[I]'s shorn layers mend together. ([I.peel_count])."))
-				else
-					if(I.body_parts_covered_dynamic != I.body_parts_covered)
-						I.repair_coverage()
-						to_chat(user, span_info("[I]'s shorn layers mend together, completely."))
-				break //We finished repairs!
-		else //We gotta stand still, same with the item!
-			return
+	if(I.obj_integrity >= I.max_integrity)
+		if(I.obj_broken)
+			I.obj_fix()
+		if(I.peel_count)
+			I.peel_count--
+			to_chat(user, span_info("[I]'s shorn layers mend together. ([I.peel_count])."))
+		else
+			if(I.body_parts_covered_dynamic != I.body_parts_covered)
+				I.repair_coverage()
+				to_chat(user, span_info("[I]'s shorn layers mend together, completely."))
+		break //We finished repairs!
+	else //We gotta stand still, same with the item!
+		return
 	return //Finished the mending; Lets stop trying to repair.
 
 
@@ -87,4 +88,3 @@
 	spell_tier = 1 //Lesser Mending, still just like mending but rather akin to snails pace, and is only 1 point.
 	lesser_modifier = 2.5 SECONDS //2.5 second slower per tick. Much much slower than regular mending.
 	repair_percent = 0.7
- 

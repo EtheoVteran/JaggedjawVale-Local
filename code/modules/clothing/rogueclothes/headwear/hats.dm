@@ -6,7 +6,6 @@
 	sewrepair = TRUE
 	salvage_result = /obj/item/natural/fibers
 	salvage_amount = 2 // Minor materials loss
-	sellprice = 5 //Hey it's something!
 
 /obj/item/clothing/head/roguetown/puritan
 	name = "buckled hat"
@@ -21,7 +20,6 @@
 	sewrepair = FALSE
 	armor = ARMOR_PLATE
 	blocksound = PLATEHIT
-	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_CHOP, BCLASS_BLUNT, BCLASS_TWIST)
 	body_parts_covered = HEAD|HAIR
 	max_integrity = ARMOR_INT_HELMET_STEEL
 	anvilrepair = /datum/skill/craft/armorsmithing
@@ -75,7 +73,6 @@
 	blocksound = SOFTHIT
 	salvage_result = /obj/item/natural/fur
 	salvage_amount = 1
-	sellprice = 10
 
 /obj/item/clothing/head/roguetown/hatblu
 	name = "fur hat"
@@ -108,8 +105,8 @@
 /obj/item/clothing/head/roguetown/deserthood
 	name = "desert hood"
 	desc = "If only it was this warm."
-	icon_state = "deserthood"
-	item_state = "deserthood"
+	icon_state = "desert_hood"
+	item_state = "desert_hood"
 	sewrepair = TRUE
 
 /obj/item/clothing/head/roguetown/chaperon
@@ -189,7 +186,7 @@
 	sewrepair = TRUE
 	//dropshrink = 0.75
 
-/obj/item/clothing/head/roguetown/armingcap
+/obj/item/clothing/head/roguetown/cap
 	name = "cap"
 	desc = "A light cap made of cloth, usually worn under a helmet."
 	icon_state = "armingcap"
@@ -205,7 +202,7 @@
 	sewrepair = TRUE
 	//dropshrink = 0.75
 
-/obj/item/clothing/head/roguetown/armingcap/dwarf
+/obj/item/clothing/head/roguetown/cap/dwarf
 	color = "#cb3434"
 
 /obj/item/clothing/head/roguetown/headband
@@ -226,7 +223,7 @@
 	armor = ARMOR_LEATHER_GOOD
 	max_integrity = ARMOR_INT_HELMET_LEATHER
 	body_parts_covered = HEAD|HAIR|EARS
-	prevent_crits = list(BCLASS_CUT, BCLASS_CHOP, BCLASS_TWIST) //Themed to protect against deadites and nitebeasts. Doesn't stop blunt-, smash-, or stabbing crits.
+	prevent_crits = PREVENT_CRITS_NONE
 	sewrepair = TRUE
 	//dropshrink = 0.75
 	dynamic_hair_suffix = null
@@ -257,7 +254,6 @@
 	blade_dulling = DULLING_BASHCHOP
 	body_parts_covered = HEAD|HAIR|EARS
 	max_integrity = ARMOR_INT_SIDE_STEEL //High leather-tier protection and critical resistances, steel-tier integrity. Integrity boost encourages hand-to-hand parrying. Weaker than the Psydonic Thorns.
-	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_TWIST)
 	blocksound = SOFTHIT
 	//dropshrink = 0.75
 	dynamic_hair_suffix = null
@@ -272,7 +268,6 @@
 	armor = ARMOR_SPELLSINGER //Highest preset protection value for head armor, without leaving people unable to sleep with the headband on. Should be appropriate for the Monk's role.
 	body_parts_covered = HEAD|HAIR|EARS
 	max_integrity = ARMOR_INT_SIDE_STEEL //High leather-tier protection and critical resistances, steel-tier integrity.
-	prevent_crits = list(BCLASS_CUT, BCLASS_STAB, BCLASS_BLUNT, BCLASS_TWIST)
 	blocksound = SOFTHIT
 	//dropshrink = 0.75
 	dynamic_hair_suffix = null
@@ -526,8 +521,6 @@
 /obj/item/clothing/head/roguetown/maidhead
 	name = "maid headdress"
 	desc = "A decorative cloth headband clearly indicating the wearer as a maid."
-	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK // Caustic Edit
-	alternate_worn_layer  = 8.9 //On top of helmet //Caustic Edit End
 	icon_state = "maidhead"
 	item_state = "maidhead"
 	icon = 'icons/roguetown/clothing/special/maids.dmi'

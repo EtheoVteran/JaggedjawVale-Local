@@ -2,29 +2,28 @@
 GLOBAL_LIST_INIT(hallucination_list, list(
 	//Conversation hallucinations. Most common. Max 100, min 40
 	/datum/hallucination/chat = 100,
-	/datum/hallucination/message = 50,
-	/datum/hallucination/voices = 50,
-	//Sound hallucinations. Uncommon. Max 35, Min 20
-	/datum/hallucination/sounds = 35,
-	/datum/hallucination/battle = 25,
-	/datum/hallucination/weird_sounds = 25,
-	/datum/hallucination/door_knock = 20,
-	//Special Hallucinations with unique conditions/events. Rare. Max 10, Min 1.
-	/datum/hallucination/fake_alert = 10,
-	/datum/hallucination/husks = 10,
-	/datum/hallucination/fire = 8,
-	/datum/hallucination/self_delusion = 6,
-	/datum/hallucination/delusion = 4,
-	/datum/hallucination/townannouncement = 4,
-	/datum/hallucination/fake_ambush = 4,
-	/datum/hallucination/shock = 3,
-	/datum/hallucination/death = 2,
-	/datum/hallucination/psydon_is_here = 1 //Intended to be very rare.
+	/datum/hallucination/message = 60,
+	/datum/hallucination/sounds = 50,
+	/datum/hallucination/voices = 40,
+	/datum/hallucination/battle = 20,
+	/datum/hallucination/dangerflash = 15,
+//	/datum/hallucination/hudscrew = 12,
+	/datum/hallucination/fake_alert = 12,
+	/datum/hallucination/weird_sounds = 8,
+	/datum/hallucination/townannouncement = 7,
+//	/datum/hallucination/items_other = 7,
+	/datum/hallucination/husks = 7,
+	/datum/hallucination/items = 4,
+	/datum/hallucination/fire = 3,
+	/datum/hallucination/self_delusion = 3,
+	/datum/hallucination/delusion = 2,
+	/datum/hallucination/shock = 1,
+	/datum/hallucination/death = 1
 	))
 
 
 /mob/living/carbon/proc/handle_hallucinations()
-	if(!hallucination)
+	if(!hallucination || !client || stat)
 		return
 
 	hallucination--
@@ -1014,5 +1013,3 @@ GLOBAL_LIST_INIT(hallucination_list, list(
 				carbon.emote("tremble") //This one really got to you.
 
 	qdel(src)
-
-#undef HAL_LINES_FILE

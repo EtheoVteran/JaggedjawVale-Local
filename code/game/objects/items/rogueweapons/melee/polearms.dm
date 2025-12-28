@@ -211,7 +211,7 @@
 	wdefense_wbonus = 8	//13 when wielded.
 	bigboy = TRUE
 	gripsprite = TRUE
-	associated_skill = /datum/skill/combat/polearms
+	associated_skill = /datum/skill/combat/staves
 	anvilrepair = /datum/skill/craft/carpentry
 	resistance_flags = FLAMMABLE
 	sellprice = 7 //BIG STICK.
@@ -246,6 +246,11 @@
 	gripsprite = FALSE
 	gripped_intents = null
 	sellprice = 100 //BIGGER STICK~ Has a gold top!
+
+/obj/item/rogueweapon/woodstaff/polearm
+	name = "shillelagh"
+	desc = "A particularly long and sturdy walking stick with a variety of uses. It's heavier at one end, making it a little unbalanced."
+	associated_skill = /datum/skill/combat/polearms
 
 /obj/item/rogueweapon/woodstaff/aries/getonmobprop(tag)
 	. = ..()
@@ -880,8 +885,8 @@
 /obj/item/rogueweapon/eaglebeak
 	force = 15
 	force_wielded = 30
-	possible_item_intents = list(/datum/intent/spear/thrust/eaglebeak, /datum/intent/spear/bash/eaglebeak)
-	gripped_intents = list(/datum/intent/spear/thrust/eaglebeak, /datum/intent/spear/bash/eaglebeak, /datum/intent/mace/smash/eaglebeak)
+	possible_item_intents = list(/datum/intent/spear/bash/eaglebeak, /datum/intent/mace/smash/eaglebeak)
+	gripped_intents = list(/datum/intent/spear/bash/eaglebeak, /datum/intent/mace/smash/eaglebeak, /datum/intent/spear/thrust/eaglebeak)
 	name = "eagle's beak"
 	desc = "A reinforced pole affixed with an ornate steel eagle's head, of which its beak is intended to pierce with great harm."
 	icon_state = "eaglebeak"
@@ -897,7 +902,7 @@
 	minstr = 11
 	smeltresult = /obj/item/ingot/steel
 	associated_skill = /datum/skill/combat/polearms
-	max_blade_int = 180
+	sharpness = IS_BLUNT
 	walking_stick = TRUE
 	wdefense = 5
 	wbalance = WBALANCE_HEAVY
@@ -922,7 +927,6 @@
 	force_wielded = 25
 	icon_state = "polehammer"
 	smeltresult = /obj/item/ingot/iron
-	max_blade_int = 150
 	sellprice = 40
 
 // A worse thrust for weapons specialized in other damage type like cut or blunt
@@ -957,8 +961,9 @@
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/sword/chop,/datum/intent/sword/strike) //bash is for nonlethal takedowns, only targets limbs
 	// Design Intent: I have a big fucking sword and I want to rend people in half.
-	gripped_intents = list(/datum/intent/sword/cut/zwei, /datum/intent/rend, /datum/intent/sword/thrust/zwei, /datum/intent/sword/strike/bad)
-	alt_intents = list(/datum/intent/effect/daze, /datum/intent/sword/strike, /datum/intent/sword/bash)
+	gripped_intents = list(/datum/intent/sword/cut/zwei, /datum/intent/sword/thrust/zwei, /datum/intent/sword/strike/bad, /datum/intent/rend)
+	alt_intents = list(/datum/intent/sword/strike, /datum/intent/sword/bash, /datum/intent/effect/daze)
+	mordhau = TRUE
 	name = "greatsword"
 	desc = "Might be able to chop anything in half!"
 	icon_state = "gsw"
@@ -982,7 +987,7 @@
 	max_blade_int = 300
 	wdefense = 5
 	smelt_bar_num = 3
-	sellprice = 75 //Amazing sword.
+	special = /datum/special_intent/greatsword_swing
 
 /obj/item/rogueweapon/greatsword/getonmobprop(tag)
 	. = ..()
@@ -1084,7 +1089,6 @@
 	max_blade_int = 200
 	smeltresult = /obj/item/ingot/blacksteel
 	smelt_bar_num = 2 // Okay you CAN get a refund on the blacksteel
-	sellprice = 288 //But do you WANT to...
 
 /obj/item/rogueweapon/greatsword/silver
 	name = "silver greatsword"
@@ -1096,7 +1100,6 @@
 	wdefense = 6
 	is_silver = TRUE
 	smeltresult = /obj/item/ingot/silver
-	sellprice = 120
 
 /obj/item/rogueweapon/greatsword/silver/ComponentInitialize()
 	AddComponent(\
@@ -1139,8 +1142,7 @@
 	force_wielded = 30
 	icon_state = "psygsword"
 	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/exe, /datum/intent/rend, /datum/intent/axe/chop)
-	sellprice = 250
+	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust/exe, /datum/intent/axe/chop, /datum/intent/rend)
 
 /obj/item/rogueweapon/greatsword/psygsword/relic/ComponentInitialize()
 	AddComponent(\
@@ -1432,7 +1434,6 @@
 	throwforce = 12	//Not a throwing weapon. Too heavy!
 	icon_angle_wielded = 50
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 60
 
 /obj/item/rogueweapon/spear/partizan/getonmobprop(tag)
 	. = ..()
@@ -1453,7 +1454,6 @@
 	wdefense = 6 // A little bit extra
 	max_blade_int = 200 
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 60 //Huntin' spear!
 
 /obj/item/rogueweapon/spear/boar/frei
 	name = "Aavnic lándzsa"
@@ -1475,7 +1475,6 @@
 	gripped_intents = list(/datum/intent/spear/thrust/lance, /datum/intent/lance, SPEAR_BASH)
 	resistance_flags = null
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 60
 
 /obj/item/rogueweapon/spear/naginata
 	name = "naginata"
@@ -1483,7 +1482,7 @@
 	force = 16
 	force_wielded = 30
 	possible_item_intents = list(/datum/intent/spear/cut/naginata, SPEAR_BASH) // no stab for you little chuddy, it's a slashing weapon
-	gripped_intents = list(/datum/intent/rend/reach, /datum/intent/spear/cut/naginata, PARTIZAN_PEEL, SPEAR_BASH)
+	gripped_intents = list(/datum/intent/spear/cut/naginata,SPEAR_BASH, /datum/intent/rend/reach, PARTIZAN_PEEL)
 	icon_state = "naginata"
 	icon = 'icons/roguetown/weapons/64.dmi'
 	minstr = 7
@@ -1492,7 +1491,6 @@
 	throwforce = 12	//Not a throwing weapon. 
 	icon_angle_wielded = 50
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 60
 
 /obj/item/rogueweapon/spear/naginata/getonmobprop(tag)
 	. = ..()
@@ -1523,7 +1521,6 @@
 	icon_state = "assegai_steel"
 	gripsprite = FALSE
 	smeltresult = /obj/item/ingot/steel
-	sellprice = 60
 
 /////////////////////
 // Special Weapon! //
@@ -1617,7 +1614,6 @@
 	alt_intents = null 
 	is_silver = TRUE
 	smeltresult = /obj/item/rogueweapon/greatsword/silver //Too thick to completely melt.
-	sellprice = 1000 //Come on. This thing is fucking amazing. What the actual hell. Do not sell it. Please.
 
 /obj/item/rogueweapon/greatsword/psygsword/dragonslayer/ComponentInitialize()
 	AddComponent(\
