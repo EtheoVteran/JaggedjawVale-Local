@@ -16,10 +16,7 @@ endmap
 map roguetest
 endmap
 
-map dun_manor
-endmap
-
-map cove_world
+map dun_world
 	default
 	votable
 endmap
