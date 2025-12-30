@@ -1,4 +1,4 @@
 author: "FreeStylaLT"
 delete-after: True
 changes:
-  - rscadd: "Rumors & Gossip"
+  - balance: "Wretches have no more antag weight."
