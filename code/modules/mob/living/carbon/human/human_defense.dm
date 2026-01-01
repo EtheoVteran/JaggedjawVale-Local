@@ -51,21 +51,9 @@
 			if(bless.is_blessed)
 				// Apply multiplier if the blessing is active.
 				intdamage = round(intdamage * bless.cursed_item_intdamage)
-		
-		//Integrity Spread armor ratio begins here.
-		if(length(used_armors) >= 2) //Check if we even have multiple armors.
-			var/ratio_index = 1
-			var/ratio_total = 0
-			var/list/AC_ratio = get_armor_class_ratio(used_armors)
-			for(var/ii in 1 to length(AC_ratio))
-				var/val = AC_ratio[ratio_index]
-				ratio_index++
-				ratio_total += val
-
-			if(ratio_total) //Only spread damage if the ratio has a value. Typically this will always be the case.
-				var/damage_ratio_percentage = AC_ratio[cur_armor] / ratio_total
-				intdamage *= damage_ratio_percentage
-	
+		var/tempo_bonus = get_tempo_bonus(TEMPO_TAG_ARMOR_INTEGFACTOR)
+		if(tempo_bonus)
+			intdamage *= tempo_bonus
 		used.take_damage(intdamage, damage_flag = d_type, sound_effect = FALSE, armor_penetration = 100)
 		cur_armor++ //Index to the next armor piece.
 
