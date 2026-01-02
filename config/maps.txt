@@ -17,6 +17,9 @@ map roguetest
 endmap
 
 map dun_world
+endmap
+
+map JaggedJaw
 	default
 	votable
 endmap
