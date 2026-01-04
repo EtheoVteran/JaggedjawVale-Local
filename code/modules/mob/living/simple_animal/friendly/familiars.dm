@@ -53,7 +53,7 @@
 	footstep_type = FOOTSTEP_MOB_BAREFOOT
 	var/obj/item/mouth = null
 	
-	var/buff_given = list()
+	var/buff_given = null
 	var/mob/living/carbon/familiar_summoner = null
 	var/inherent_spell = null
 	var/summoning_emote = null
@@ -91,6 +91,8 @@
 	emote("deathgasp")
 	if(familiar_summoner)
 		to_chat(familiar_summoner, span_warning("[src.name] has fallen, and your bond dims. Yet in the quiet beyond, a flicker of their essence remains."))
+		if(buff_given)
+			familiar_summoner.remove_status_effect(buff_given) //dead familiars should not continue to provide buffs
 
 /mob/living/simple_animal/pet/familiar/Destroy()
     if(familiar_summoner)
@@ -128,7 +130,7 @@
 
 /datum/status_effect/buff/familiar/settled_weight
 	id = "settled_weight"
-	effectedstats = list(STATKEY_STR = 1)
+	effectedstats = list(STATKEY_STR = 1, STATKEY_INT = -1, STATKEY_PER = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/settled_weight
 
 /atom/movable/screen/alert/status_effect/buff/familiar/settled_weight
@@ -163,7 +165,7 @@
 
 /datum/status_effect/buff/familiar/silver_glance
 	id = "silver_glance"
-	effectedstats = list(STATKEY_PER = 1)
+	effectedstats = list(STATKEY_PER = 1, STATKEY_WIL = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/silver_glance
 
 /atom/movable/screen/alert/status_effect/buff/familiar/silver_glance
@@ -195,7 +197,7 @@
 
 /datum/status_effect/buff/familiar/threaded_thoughts
 	id = "threaded_thoughts"
-	effectedstats = list(STATKEY_INT = 1)
+	effectedstats = list(STATKEY_INT = 1, STATKEY_CON = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/threaded_thoughts
 
 /atom/movable/screen/alert/status_effect/buff/familiar/threaded_thoughts
@@ -226,7 +228,7 @@
 
 /datum/status_effect/buff/familiar/quiet_resilience
 	id = "quiet_resilience"
-	effectedstats = list(STATKEY_WIL = 1)
+	effectedstats = list(STATKEY_CON = 1, STATKEY_INT = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/quiet_resilience
 
 /atom/movable/screen/alert/status_effect/buff/familiar/quiet_resilience
@@ -260,7 +262,7 @@
 
 /datum/status_effect/buff/familiar/desert_bred_tenacity
 	id = "desert_bred_tenacity"
-	effectedstats = list(STATKEY_WIL = 1)
+	effectedstats = list(STATKEY_WIL = 1, STATKEY_PER = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/desert_bred_tenacity
 
 /atom/movable/screen/alert/status_effect/buff/familiar/desert_bred_tenacity
@@ -293,7 +295,7 @@
 
 /datum/status_effect/buff/familiar/lightstep
 	id = "lightstep"
-	effectedstats = list(STATKEY_SPD = 1)
+	effectedstats = list(STATKEY_SPD = 1, STATKEY_WIL = -1, STATKEY_INT = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/lightstep
 
 /atom/movable/screen/alert/status_effect/buff/familiar/lightstep
@@ -325,7 +327,7 @@
 
 /datum/status_effect/buff/familiar/soft_favor
 	id = "soft_favor"
-	effectedstats = list(STATKEY_SPD = 1)
+	effectedstats = list(STATKEY_PER = 1, STATKEY_INT = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/soft_favor
 
 /atom/movable/screen/alert/status_effect/buff/familiar/soft_favor
@@ -359,7 +361,7 @@
 
 /datum/status_effect/buff/familiar/burdened_coil
 	id = "burdened_coil"
-	effectedstats = list(STATKEY_STR = 1, STATKEY_WIL = 1)
+	effectedstats = list(STATKEY_LCK = -1, STATKEY_WIL = 1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/burdened_coil
 
 /atom/movable/screen/alert/status_effect/buff/familiar/burdened_coil
@@ -398,7 +400,7 @@
 
 /datum/status_effect/buff/familiar/starseam
 	id = "starseam"
-	effectedstats = list(STATKEY_PER = 1, STATKEY_SPD = 1)
+	effectedstats = list(STATKEY_PER = 1, STATKEY_CON = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/starseam
 
 /atom/movable/screen/alert/status_effect/buff/familiar/starseam
@@ -432,7 +434,7 @@
 
 /datum/status_effect/buff/familiar/steady_spark
 	id = "steady_spark"
-	effectedstats = list(STATKEY_INT = 1, STATKEY_CON = 1)
+	effectedstats = list(STATKEY_STR = 1, STATKEY_PER = -1, STATKEY_CON = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/steady_spark
 
 /atom/movable/screen/alert/status_effect/buff/familiar/steady_spark
@@ -441,7 +443,7 @@
 
 /mob/living/simple_animal/pet/familiar/ripplefox
 	name = "Ripplefox"
-	desc = "They flickers when not directly observed. Leaves no tracks. You're not always sure they're still nearby."
+	desc = "They flicker when not directly observed. Leaves no tracks. You're not always sure they're still nearby."
 	summoning_emote = "A ripple in the air becomes a sleek fox, their fur twitching between shades of color as they pads forth."
 	animal_species = "Ripplefox"
 	buff_given = /datum/status_effect/buff/familiar/subtle_slip
@@ -463,7 +465,7 @@
 
 /datum/status_effect/buff/familiar/subtle_slip
 	id = "subtle_slip"
-	effectedstats = list(STATKEY_SPD = 1, STATKEY_LCK = 1) // Idk why it gave +1 speed twice instead of +2, but +2 speed's too much. Luck is more thematic.
+	effectedstats = list(STATKEY_LCK = 1, STATKEY_WIL = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/subtle_slip
 
 /atom/movable/screen/alert/status_effect/buff/familiar/subtle_slip
@@ -496,7 +498,7 @@
 
 /datum/status_effect/buff/familiar/noticed_thought
 	id = "noticed_thought"
-	effectedstats = list(STATKEY_PER = 1, STATKEY_INT = 1)
+	effectedstats = list(STATKEY_PER = 1, STATKEY_INT = 1, STATKEY_STR = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/noticed_thought
 
 /atom/movable/screen/alert/status_effect/buff/familiar/noticed_thought
@@ -528,7 +530,7 @@
 
 /datum/status_effect/buff/familiar/worn_stone
 	id = "worn_stone"
-	effectedstats = list(STATKEY_STR = 1, STATKEY_CON = 1)
+	effectedstats = list(STATKEY_WIL = 1, STATKEY_CON = 1, STATKEY_SPD = -1)
 	alert_type = /atom/movable/screen/alert/status_effect/buff/familiar/worn_stone
 
 /atom/movable/screen/alert/status_effect/buff/familiar/worn_stone
