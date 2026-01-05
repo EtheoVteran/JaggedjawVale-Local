@@ -46,6 +46,7 @@
 		STATKEY_INT = 1,
 		STATKEY_PER = 2
 	)
+	age_mod = /datum/class_age_mod/guildmaster
 	subclass_skills = list(
 		/datum/skill/combat/axes = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/maces = SKILL_LEVEL_JOURNEYMAN,
@@ -105,13 +106,6 @@
 
 /datum/outfit/job/roguetown/guildmaster/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	if(H.age == AGE_OLD)
-		H.adjust_skillrank(/datum/skill/craft/blacksmithing, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/craft/armorsmithing, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/craft/weaponsmithing, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/craft/smelting, 1, TRUE)
-		H.adjust_skillrank(/datum/skill/craft/sewing, 1, TRUE) // Worse than the real tailor, so can't steal their job right away
-		H.adjust_skillrank(/datum/skill/craft/tanning, 1, TRUE)
 
 /mob/living/carbon/human/proc/guild_announcement()
 	set name = "Announcement"

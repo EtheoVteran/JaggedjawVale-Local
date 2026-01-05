@@ -66,6 +66,7 @@
 		STATKEY_CON = 1,
 		STATKEY_PER = 1
 	)
+	age_mod = /datum/class_age_mod/veteran/battlemaster
 	subclass_skills = list(
 		/datum/skill/combat/swords = SKILL_LEVEL_MASTER,
 		/datum/skill/combat/maces = SKILL_LEVEL_MASTER,
@@ -111,11 +112,6 @@
 
 /datum/outfit/job/roguetown/vet/battlemaster/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	if(H.age == AGE_OLD)
-		H.adjust_skillrank_up_to(/datum/skill/combat/swords, 6, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/maces, 6, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 5, TRUE)
-		H.change_stat(STATKEY_WIL, 1)
 
 	H.adjust_blindness(-3)
 	if(H.mind)
@@ -183,6 +179,7 @@
 		STATKEY_PER = 1,
 		STATKEY_WIL = 1
 	)
+	age_mod = /datum/class_age_mod/veteran/footman
 	subclass_skills = list(
 		/datum/skill/combat/swords = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/maces = SKILL_LEVEL_EXPERT,
@@ -227,13 +224,6 @@
 		/obj/item/rope/chain = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1
 		)
-	if(H.age == AGE_OLD)
-		H.adjust_skillrank_up_to(/datum/skill/combat/shields, 6, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 6, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/maces, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/axes, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/wrestling, 5, TRUE)
 	H.verbs |= /mob/proc/haltyell
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_RICH, H, "Retirement.")
@@ -294,6 +284,7 @@
 		STATKEY_INT = 1,
 		STATKEY_SPD = -1
 	)
+	age_mod = /datum/class_age_mod/veteran/cavalryman
 	subclass_skills = list(
 		/datum/skill/combat/swords = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/maces = SKILL_LEVEL_JOURNEYMAN,
@@ -334,14 +325,6 @@
 		/obj/item/rogueweapon/scabbard/sheath = 1,
 		/obj/item/storage/keyring/guardcastle = 1
 		)
-	if(H.age == AGE_OLD)
-		H.adjust_skillrank_up_to(/datum/skill/combat/bows, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/maces, 5, TRUE) // You get a lot of weapon skills, but none are legendary. Jack of all trades, master of none. This is probably worse than just having legendary in one, as people rarely swap weapons mid-combat.
-		H.adjust_skillrank_up_to(/datum/skill/combat/axes, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/crossbows, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/polearms, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 5, TRUE)
 	H.verbs |= /mob/proc/haltyell
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_RICH, H, "Retirement.")
@@ -423,6 +406,7 @@
 		STATKEY_PER = 1,// caustic cove edit On par with normal grenzel merc
 		STATKEY_SPD = -1
 	)
+	age_mod = /datum/class_age_mod/veteran/mercenary
 	subclass_skills = list(
 		/datum/skill/combat/swords = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/maces = SKILL_LEVEL_EXPERT,
@@ -471,10 +455,6 @@
 
 /datum/outfit/job/roguetown/vet/merc/choose_loadout(mob/living/carbon/human/H)
 	. = ..()
-	if(H.age == AGE_OLD)
-		H.adjust_skillrank_up_to(/datum/skill/combat/axes, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/misc/athletics, 3, TRUE) // two handed weapons require a LOT of stamina.
-
 	H.adjust_blindness(-3)
 	if(H.mind)
 		var/weapons = list("Zweihander","Halberd")
@@ -543,6 +523,7 @@
 		STATKEY_SPD = 1,// You get -2 speed from being old.
 		STATKEY_STR = -1
 	)
+	age_mod = /datum/class_age_mod/veteran/scout
 	subclass_skills = list(
 		/datum/skill/combat/swords = SKILL_LEVEL_EXPERT,
 		/datum/skill/combat/axes = SKILL_LEVEL_EXPERT,
@@ -586,11 +567,6 @@
 		/obj/item/storage/keyring/guardcastle = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1
 		)
-	if(H.age == AGE_OLD)
-		H.adjust_skillrank_up_to(/datum/skill/combat/bows, 6, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/swords, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/axes, 6, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/misc/tracking, 6, TRUE)
 	H.verbs |= /mob/proc/haltyell
 	H.cmode_music = 'sound/music/cmode/antag/combat_deadlyshadows.ogg' // so apparently this works for veteran, but not for advents. i dont know why.
 	if(H.mind)
@@ -652,6 +628,7 @@
 		STATKEY_SPD = 1,
 		STATKEY_STR = -2
 	)
+	age_mod = /datum/class_age_mod/veteran/spy
 	subclass_skills = list(
 		/datum/skill/combat/swords = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/maces = SKILL_LEVEL_JOURNEYMAN,
@@ -698,15 +675,6 @@
 		/obj/item/reagent_containers/glass/bottle/rogue/poison = 1,
 		/obj/item/lockpickring/mundane,
 		)
-	if(H.age == AGE_OLD)
-		H.adjust_skillrank_up_to(/datum/skill/combat/knives, 5, TRUE) ///Having Master Knives is extremely negligible for a singular role that isn't even meant to be combative.
-		H.adjust_skillrank_up_to(/datum/skill/combat/swords, 4, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/misc/sneaking, 6, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/bows, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/misc/climbing, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/misc/stealing, 5, TRUE)
-		H.adjust_skillrank_up_to(/datum/skill/combat/whipsflails, 6, TRUE)
-		H.change_stat(STATKEY_SPD, 1) // You get -2 speed from being old. You are still in the negative stat wise from picking old.
 	H.verbs |= /mob/proc/haltyell
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_RICH, H, "Retirement.")
