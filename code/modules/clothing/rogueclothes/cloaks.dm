@@ -671,6 +671,7 @@
 	inhand_mod = TRUE
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	salvage_result = /obj/item/natural/fur
+	cold_protection = 20
 
 /obj/item/clothing/cloak/darkcloak/bear
 	name = "direbear cloak"
@@ -1467,6 +1468,7 @@
 	name = "snow cloak"
 	desc = "A cloak meant to keep one's body warm in the cold of the mountains as well as the dampness of Azuria."
 	icon_state = "snowcloak"
+	cold_protection = 15
 
 /obj/item/clothing/cloak/poncho
 	name = "cloth poncho"
